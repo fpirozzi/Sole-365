@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Proposta Strategica Romeo Napoli & VideoMetrò 2026</title>
-    
+    <title>Sole365 | Brand Dominance 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
         :root {
-            --primary: #003366;
-            --accent: #C5A059;
-            --bg: #F9F7F2;
+            --primary: #F39200; /* Arancione Sole365 */
+            --primary-dark: #D47F00;
+            --secondary: #4E8B42; /* Verde Freschezza */
+            --bg: #FFFFFF;
+            --bg-soft: #FFF9F2;
             --text: #1A1A1A;
             --white: #FFFFFF;
             font-size: 18px;
@@ -26,10 +25,10 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body { 
-            background-color: #000; 
+            background-color: var(--white); 
             color: var(--text);
             font-family: 'Montserrat', sans-serif;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         .container {
@@ -53,14 +52,14 @@
             padding: 4rem 8%;
         }
 
-        h1, h2, h3, h4 { font-family: 'Merriweather', serif; color: var(--primary); margin: 0; text-align: center; }
-        .accent-line { width: 100px; height: 7px; background: var(--accent); margin: 1.5rem auto; border-radius: 10px; }
+        h1, h2 { font-family: 'Merriweather', serif; color: var(--primary); margin: 0; line-height: 1.2; text-align: center; }
+        .accent-line { width: 120px; height: 8px; background: var(--secondary); margin: 1.5rem auto; border-radius: 50px; }
 
         .vnn-logo-top {
             position: absolute;
-            top: 50px; 
-            right: 60px;
-            width: 160px;
+            top: 40px; 
+            right: 50px;
+            width: 130px;
             z-index: 100;
         }
 
@@ -69,210 +68,75 @@
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 0;
         }
-        .video-container video {
-            width: 100%; height: 100%; object-fit: cover;
-        }
+        .video-container video { width: 100%; height: 100%; object-fit: cover; }
         .video-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,51,102,0.85), rgba(0,51,102,0.5));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
             z-index: 1;
         }
+        .hero-content { position: relative; z-index: 10; text-align: center; color: white; max-width: 1000px; }
+        .hero-content h1 { color: white; font-size: 4.5rem; text-transform: uppercase; font-weight: 900; }
+        .hero-content p { font-size: 1.5rem; font-weight: 600; margin-top: 20px; letter-spacing: 2px; }
 
-        .hero-content {
-            position: relative;
-            z-index: 50;
-            text-align: center;
-            color: white;
-        }
-        .hero-content h1 { color: white; font-size: 5.5rem; text-transform: uppercase; letter-spacing: 5px; line-height: 1.1; }
-        .hero-content p { font-size: 1.8rem; color: var(--accent); font-weight: 700; margin-top: 15px; }
-
-        .offer-card {
+        .brand-card {
             background: var(--white);
-            padding: 2.5rem 3rem;
-            border-radius: 40px;
-            box-shadow: 0 50px 100px rgba(0,0,0,0.15);
+            padding: 3.5rem;
+            border-radius: 50px;
+            box-shadow: 0 40px 80px rgba(243,146,0,0.15);
             width: 100%;
-            height: 88vh; 
-            max-width: 1500px;
+            height: 85vh; 
+            max-width: 1400px;
             z-index: 2;
-            border-top: 15px solid var(--accent);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .card-main-content {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 40px;
-            flex-grow: 1;
-        }
-
-        .card-column { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
-        .border-right { border-right: 2px solid #f1f5f9; padding-right: 30px; }
-
-        .new-price { font-size: 4.5rem; font-weight: 800; color: var(--primary); line-height: 1; margin: 0.3rem 0; text-align: left; }
-        
-        .photo-wrapper {
-            width: 100%;
-            height: 330px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-top: 10px;
-        }
-        .offer-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .station-grid {
+            border-bottom: 15px solid var(--primary);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 5px;
-        }
-        .station-item {
-            background: #f8fafc;
-            padding: 12px; 
-            border-radius: 12px;
-            border-left: 6px solid var(--accent);
-            text-align: left;
-        }
-        .station-item h4 { font-size: 1rem; margin-bottom: 3px; text-align: left; }
-
-        .service-list { list-style: none; display: flex; flex-direction: column; justify-content: space-around; height: 100%; }
-        .service-list li { font-size: 1.15rem; display: flex; align-items: flex-start; color: #334155; line-height: 1.3; }
-        .service-list i { color: var(--accent); margin-right: 15px; margin-top: 4px; font-size: 1.4rem; min-width: 40px; text-align: center; }
-
-        .footer-note {
-            font-size: 0.85rem;
-            color: #64748b;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 10px;
-            line-height: 1.4;
-            text-align: left;
-            font-style: italic;
-            margin-top: 15px;
-        }
-
-        .showcase-wrapper {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
+            gap: 50px;
             align-items: center;
         }
 
-        .showcase-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            width: 100%;
-        }
-        
-        .tg-grid { grid-template-columns: repeat(4, 1fr); max-width: 1450px; }
+        .card-image-wrap { position: relative; width: 100%; height: 100%; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
 
-        .showcase-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-            border: 1px solid #f1f5f9;
-            transition: transform 0.3s ease;
-        }
-        .showcase-card:hover { transform: translateY(-10px); }
-        .showcase-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
-        .showcase-card h4 { font-size: 1rem; height: 3rem; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; color: var(--primary); font-weight: 700; }
-        
-        .btn-play {
-            display: inline-block;
-            padding: 10px 25px;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        .nav-dots {
-            position: fixed;
-            right: 40px;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .dot {
-            width: 12px; height: 12px;
-            background: rgba(0,0,0,0.15);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .dot.active { background: var(--accent); transform: scale(1.6); }
-
-        .tag-prestige {
-            background: var(--primary);
-            color: white;
-            font-size: 1.3rem; 
-            padding: 8px 25px;
+        .stat-circle {
+            background: var(--bg-soft);
+            padding: 30px;
             border-radius: 30px;
-            font-weight: 800;
-            text-transform: uppercase;
-            display: inline-block;
+            border-left: 10px solid var(--secondary);
+            margin-bottom: 25px;
         }
+        .stat-circle h3 { font-size: 4rem; color: var(--primary); font-weight: 800; text-align: left; line-height: 1; }
+        .stat-circle p { font-size: 1.1rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; text-align: left; margin-top: 10px; }
 
-        /* FINAL GRID STYLES */
-        .final-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            width: 100%;
-            max-width: 1400px;
-            margin-bottom: 30px;
-            z-index: 10;
-        }
-        .final-photo {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 3px solid rgba(255,255,255,0.2);
-        }
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li { font-size: 1.25rem; display: flex; align-items: flex-start; margin-bottom: 25px; color: #333; text-align: left; line-height: 1.4; }
+        .feature-list i { color: var(--primary); margin-right: 20px; margin-top: 5px; font-size: 1.6rem; }
 
-        .final-logo-pill {
-            background: white;
-            padding: 20px 40px;
-            border-radius: 100px;
-            display: inline-block;
-            margin-bottom: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-        }
-        .final-logo-pill img { width: 180px; height: auto; display: block; }
+        .rule-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; width: 100%; max-width: 1300px; }
+        .rule-item { background: white; padding: 20px; border-radius: 25px; border-top: 5px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; }
+        .rule-item h4 { color: var(--primary); font-size: 1rem; margin-bottom: 8px; }
+        .rule-item p { font-size: 0.8rem; line-height: 1.4; color: #555; }
+
+        .showcase-wrapper { width: 100%; max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+        .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
+        .tg-grid { grid-template-columns: repeat(4, 1fr); max-width: 1400px; }
+        .showcase-card { background: white; padding: 1.2rem; border-radius: 30px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 1px solid #f1f5f9; }
+        .showcase-card h4 { font-size: 0.85rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; color: var(--primary); font-weight: 700; line-height: 1.2; }
+        .btn-play { display: inline-block; padding: 10px 25px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+
+        .client-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; max-width: 1300px; }
+        .client-item { background: white; padding: 10px; border-radius: 15px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; height: 60px; font-size: 0.7rem; text-transform: uppercase; }
+
+        .nav-dots { position: fixed; right: 30px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 8px; }
+        .dot { width: 10px; height: 10px; background: rgba(0,0,0,0.15); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        .dot.active { background: var(--primary); transform: scale(1.5); }
 
         @media (max-width: 1024px) {
-            :root { font-size: 16px; }
-            section { height: auto; min-height: 100vh; padding: 60px 20px; }
-            .container { scroll-snap-type: none; overflow-y: auto; }
-            .offer-card { height: auto; padding: 2rem; }
-            .card-main-content, .final-grid { grid-template-columns: 1fr; }
-            .photo-wrapper { height: 220px !important; margin: 15px auto !important; width: 100% !important; }
-            .offer-photo { height: 100% !important; object-fit: cover !important; }
-            .final-photo { height: 200px !important; margin-bottom: 10px; }
-            .showcase-grid, .tg-grid { grid-template-columns: 1fr; }
+            section { height: auto; min-height: 100vh; padding: 4rem 5%; }
+            .container { scroll-snap-type: none; }
+            .brand-card { grid-template-columns: 1fr; height: auto; padding: 2rem; }
+            .rule-grid, .showcase-grid, .tg-grid, .client-grid { grid-template-columns: 1fr; }
             .nav-dots { display: none; }
-            .vnn-logo-top { display: none; }
-            section:first-of-type .vnn-logo-top { display: block; position: relative; top: 0; right: 0; margin: 0 auto 20px auto; width: 120px; }
         }
     </style>
 </head>
@@ -283,317 +147,160 @@
         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        <div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div>
     </div>
 
     <div class="container">
         
         <section>
             <div class="video-container">
-                <video autoplay muted loop playsinline>
-                    <source src="VIDEO-2026-02-16-09-46-52.mp4" type="video/mp4">
-                </video>
+                <video autoplay muted loop playsinline><source src="VIDEO-2026-02-16-09-46-52.mp4" type="video/mp4"></video>
                 <div class="video-overlay"></div>
             </div>
-            <img src="Risorsa 1.png" alt="Logo VNN" class="vnn-logo-top">
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
             <div class="hero-content">
-                <p style="letter-spacing: 8px; opacity: 0.9; text-transform: uppercase;">PROPOSTA SPECIALE HOSPITALITY</p>
-                <h1>Romeo Napoli</h1>
-                <div class="accent-line" style="width: 200px; height: 6px;"></div>
-                <p style="font-size: 2.2rem; color: white;">Partnership Alain Ducasse & VideoMetrò 2026</p>
+                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 5px;">SOLE365 & STAZIONI DELL'ARTE</p>
+                <h1>Il Palcoscenico<br>dell'Eccellenza</h1>
+                <div class="accent-line" style="background: white; width: 180px;"></div>
+                <p>Progetto di Brand Dominance e Posizionamento Strategico 2026</p>
             </div>
         </section>
 
-        <section>
-            <div class="hero-content" style="color: var(--primary); max-width: 1100px;">
-                <h3 style="font-size: 150px; line-height: 1; margin-bottom: 0;">400.000</h3>
-                <p style="font-size: 48px; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 40px;">Sguardi ogni giorno</p>
-                <div class="accent-line" style="width: 150px;"></div>
-                <p style="font-size: 2.4rem; line-height: 1.8; color: #4b5563;">
-                    Il brand Romeo e la firma di <strong>Alain Ducasse</strong> diventano parte integrante del panorama culturale di Napoli. Un presidio d’élite che trasforma l’attesa in banchina in un’esperienza di pura ispirazione.
+        <section style="background-color: var(--bg-soft);">
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <div style="max-width: 1000px; text-align: center;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Chi Siamo</h2>
+                <div class="accent-line"></div>
+                <p style="font-size: 1.8rem; font-weight: 600; color: var(--primary); margin-bottom: 30px;">
+                    Siamo la TV del Sistema di Metropolitana Regionale della Campania.
                 </p>
+                <p style="font-size: 1.4rem; line-height: 1.8; color: #444; font-weight: 400;">
+                    Trasformiamo l'attesa in un'esperienza di valore. Attraverso il nostro network, integriamo il messaggio di <strong>Sole365</strong> nel tessuto culturale e quotidiano di Napoli e della sua provincia.
+                </p>
+                <div style="margin-top: 40px; display: inline-block; background: var(--primary); color: white; padding: 20px 40px; border-radius: 50px; font-weight: 800; font-size: 1.5rem; box-shadow: 0 10px 30px rgba(243,146,0,0.3);">
+                    400.000 CONTATTI GARANTITI OGNI GIORNO
+                </div>
             </div>
         </section>
 
         <section>
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <div style="max-width: 1000px; text-align: center; z-index: 10;">
+                <i class="fa-solid fa-sun" style="font-size: 4rem; color: var(--primary); margin-bottom: 30px;"></i>
+                <h2 style="font-size: 3rem; margin-bottom: 40px;">L'Affinità Elettiva</h2>
+                <p style="font-size: 2rem; line-height: 1.6; font-weight: 300; color: #444;">
+                    "Sole365 ha ridefinito il branding nella GDO attraverso la <strong>gentilezza</strong>. Le Stazioni dell'Arte riflettono questi stessi canoni estetici."
+                </p>
+                <div class="accent-line"></div>
+                <p style="font-size: 1.4rem; color: var(--secondary); font-weight: 600;">Un posizionamento che eleva il brand oltre la semplice pubblicità.</p>
+            </div>
+        </section>
+
+        <section style="background-color: var(--bg-soft);">
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <div class="brand-card">
+                <div>
+                    <div class="stat-circle">
+                        <h3>400.000</h3>
+                        <p>OTS (Opportunity To See) Quotidiani</p>
+                    </div>
+                    <h2 style="text-align: left; font-size: 2.2rem; margin-bottom: 25px;">Metropolitan Domination</h2>
+                    <ul class="feature-list">
+                        <li><i class="fa-solid fa-location-dot"></i> <div><strong>Hub Primari:</strong> Metro Linea 1 + Funicolari (Chiaia, Centrale, Montesanto).</div></li>
+                        <li><i class="fa-solid fa-expand"></i> <div><strong>Espansione Suburbana:</strong> Presidio delle principali stazioni di Cumana e Circumvesuviana.</div></li>
+                        <li><i class="fa-solid fa-display"></i> <div><strong>Asset:</strong> 40 Impianti Digital Full-Motion ad altissima risoluzione.</div></li>
+                    </ul>
+                </div>
+                <div class="card-image-wrap"><img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" alt="Mockup Toledo"></div>
+            </div>
+        </section>
+
+        <section>
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <div class="brand-card" style="border-bottom-color: var(--secondary);">
+                <div class="card-image-wrap"><img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" alt="Mockup Dominance"></div>
+                <div>
+                    <h2 style="text-align: left; font-size: 2.2rem; color: var(--secondary); margin-bottom: 20px;">Silenzio Competitivo</h2>
+                    <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 30px; color: #444;">
+                        Sole365 domina il circuito con una <strong>Share of Voice esclusiva</strong> per il settore GDO. In un mercato saturo, noi cancelliamo il rumore di fondo dei competitor.
+                    </p>
+                    <div style="background: var(--primary); color: white; padding: 35px; border-radius: 35px; box-shadow: 0 15px 40px rgba(243,146,0,0.2);">
+                        <p style="font-weight: 800; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 10px; color: white; text-align: left;">Il Potere del Momento</p>
+                        <p style="font-weight: 500; font-size: 1.5rem; line-height: 1.3; text-align: left;">Presidiamo i flussi decisionali nel momento esatto in cui nasce il bisogno della spesa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--bg-soft);">
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
             <div class="showcase-wrapper">
-                <h2 class="slide-title-centered" style="font-size: 3.5rem; margin-bottom: 40px;">Il Circuito dell'Eccellenza</h2>
-                <div class="showcase-grid tg-grid" style="grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1300px;">
-                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <h4 style="margin: 0; font-size: 1.4rem;">STAZIONE MUNICIPIO</h4>
-                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">Luxury Entry Point</span>
-                        </div>
-                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Il brand Romeo appare come un’oasi di calma e lusso. È il vostro Red Carpet digitale per chi arriva dal Porto.</p>
-                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: DINAMISMO VS ECCELLENZA</div>
+                <h2 style="font-size: 3rem; margin-bottom: 20px;">Le 7 Regole di Sole365</h2>
+                <div class="rule-grid" style="margin-bottom: 30px;">
+                    <div class="rule-item"><h4>1. Persone al centro</h4><p>Ci stanno a cuore le persone prima della loro spesa.</p></div>
+                    <div class="rule-item"><h4>2. Qualità e Sicurezza</h4><p>Risparmio, qualità e sicurezza garantiti.</p></div>
+                    <div class="rule-item"><h4>3. Prezzi Bassi 365</h4><p>Prezzi bassi costanti, senza promozioni a scadenza.</p></div>
+                    <div class="rule-item"><h4>4. Niente Raccolte Punti</h4><p>Semplifichiamo la scelta senza costi nascosti.</p></div>
+                    <div class="rule-item"><h4>5. Rispetto Ambiente</h4><p>Impegno eco-friendly: zero spreco di volantini cartacei.</p></div>
+                    <div class="rule-item"><h4>6. Libertà di Spesa</h4><p>Acquisti solo ciò che serve, senza eccessi indotti.</p></div>
+                    <div class="rule-item"><h4>7. Serenità Totale</h4><p>Lavoriamo per rendere la spesa serena e sicura.</p></div>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 40px; border: 3px solid var(--primary); width: 100%; text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                    <div>
+                        <h4 style="color: var(--primary); text-align: left; margin-bottom: 12px; font-size: 1.3rem;"><i class="fa-solid fa-handshake-angle"></i> Amplificatore di Valori</h4>
+                        <p style="font-size: 1rem; color: #333; line-height: 1.6;">Non trasmettiamo spot, ma contenuti che educano alla gentilezza. Portiamo la filosofia di Sole365 dove la città vive e si muove.</p>
                     </div>
-                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <h4 style="margin: 0; font-size: 1.4rem;">FUNICOLARE CENTRALE</h4>
-                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">High-Spending Target</span>
-                        </div>
-                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Intercettiamo il target locale alto-spendente. Il link diretto tra i residenti d'élite e la cucina stellata di Alain Ducasse.</p>
-                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: LIFESTYLE & CONVIVIALITÀ</div>
-                    </div>
-                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <h4 style="margin: 0; font-size: 1.4rem;">STAZIONE TOLEDO</h4>
-                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">Global Icon</span>
-                        </div>
-                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Nella stazione più bella del mondo, il brand Romeo associato alla bellezza architettonica premiata globalmente.</p>
-                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: BRAND DOMINANCE</div>
-                    </div>
-                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                            <h4 style="margin: 0; font-size: 1.4rem;">STAZIONE GARIBALDI</h4>
-                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">International Hub</span>
-                        </div>
-                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Hub dell'Alta Velocità. Il primo contatto con chi arriva a Napoli, comunicando l'anima moderna del Romeo.</p>
-                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: INNOVAZIONE URBANA</div>
+                    <div style="border-left: 2px solid #f1f5f9; padding-left: 30px;">
+                        <h4 style="color: var(--secondary); text-align: left; margin-bottom: 12px; font-size: 1.3rem;"><i class="fa-solid fa-leaf"></i> Sinergia Green & Digital</h4>
+                        <p style="font-size: 1rem; color: #333; line-height: 1.6;">Il nostro network è l'alleato perfetto per la vostra politica "No Volantini": <strong>100% digitale, 100% in tempo reale</strong>, a impatto zero sull'ambiente.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="offer-card">
-                <div class="card-main-content">
-                    <div class="card-column border-right">
-                        <div>
-                            <h2 style="font-size: 2.5rem; text-align: left;">Romeo Gallery</h2>
-                            <div class="new-price">€ 24.000</div>
-                            <p style="color: var(--accent); font-weight: 800; margin-bottom: 15px;">DURATA CAMPAGNA: 3 MESI</p>
-                            <div class="station-grid">
-                                <div class="station-item"><h4>Municipio</h4></div>
-                                <div class="station-item"><h4>Toledo</h4></div>
-                                <div class="station-item"><h4>Chiaia</h4></div>
-                                <div class="station-item"><h4>Garibaldi</h4></div>
-                            </div>
-                        </div>
-                        <div class="photo-wrapper">
-                            <img src="Screenshot 2026-03-19 alle 12.06.49.jpg" class="offer-photo" alt="Romeo Gallery">
-                        </div>
-                    </div>
-                    <div class="card-column" style="padding-left: 10px;">
-                        <h3 style="font-size: 2rem; text-align: left; margin-bottom: 20px;">Asset Inclusi:</h3>
-                        <ul class="service-list">
-                            <li><i class="fa-solid fa-film"></i> <div><strong>9 Spot Digitali (Totali):</strong> 3 Tips (Chef), 3 Calendar (Eventi), 3 Brand Prestige.</div></li>
-                            <li><i class="fa-solid fa-clapperboard"></i> <div><strong>1 Focus Video:</strong> Intervista Video d'autore dedicata al Management o allo Chef.</div></li>
-                            <li><i class="fa-solid fa-clock"></i> <div><strong>Presidio H24:</strong> Frequenza garantita sui nodi strategici.</div></li>
-                            <li><i class="fa-solid fa-share-nodes"></i> <div><strong>Social Media Kit:</strong> Formati video ottimizzati per LinkedIn e Instagram.</div></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="offer-card" style="border-top-color: var(--primary);">
-                
-                <div class="card-main-content">
-                    <div class="card-column border-right">
-                        <div>
-                            <h2 style="font-size: 2.5rem; text-align: left;">Excellence Full</h2>
-                            <div class="new-price">€ 60.000</div>
-                            <p style="color: var(--accent); font-weight: 800; margin-bottom: 3px;">DURATA CAMPAGNA: 6 MESI</p>
-                            <p style="color: var(--primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 1px;">ESCLUSIVA MERCEOLOGICA</p>
-                            <div style="background: var(--primary); color: white; padding: 22px; border-radius: 20px; border-left: 8px solid var(--accent); margin-top: 5px;">
-                                <h4 style="color: var(--accent); text-align: left; font-size: 1.6rem;">24 Stazioni <small style="font-size: 0.6em; opacity: 0.8; font-weight: 300; margin-left: 5px;">Full Circuit</small></h4>
-                                <p style="font-size: 0.9rem;">Copertura integrale dell'intera rete VideoMetrò.</p>
-                            </div>
-                        </div>
-                        <div class="photo-wrapper" style="height: 320px;">
-                            <img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" class="offer-photo" alt="Metro Romeo">
-                        </div>
-                    </div>
-                    <div class="card-column" style="padding-left: 10px;">
-                        <h3 style="font-size: 2rem; text-align: left; margin-bottom: 15px;">Servizi Premium:</h3>
-                        <ul class="service-list">
-                            <li><i class="fa-solid fa-photo-film"></i> <div><strong>18 Spot Digitali:</strong> Aggiornamenti ciclici per Focus, Tips, Calendar e Stories.</div></li>
-                            <li><i class="fa-solid fa-microphone-lines"></i> <div><strong>Produzione TG Special:</strong> Format redazionale dedicato ai grandi eventi Romeo.</div></li>
-                            <li><i class="fa-solid fa-clapperboard"></i> <div><strong>3 Produzioni Focus Video:</strong> Interviste d'autore sulla visione del Gruppo.</div></li>
-                            <li><i class="fa-solid fa-video"></i> <div><strong>Video Istituzionale:</strong> Produzione d'élite dedicata a SPA e Design.</div></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="footer-note">
-                    Proposta di rinnovo semestrale: investimento di € 40.000,00 con l'inclusione di una produzione video 'High-End'. Il contenuto seguirà la linea narrativa e l'impatto emozionale del progetto 'Reggia di Caserta', garantendo un posizionamento d’eccellenza all'interno del circuito.
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="offer-card">
-                <div class="card-main-content">
-                    <div class="card-column border-right">
-                        <div>
-                            <span class="tag-prestige">focus. <i class="fa-solid fa-signature"></i></span>
-                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">Alfredo Romeo</h2>
-                            <div class="accent-line" style="margin-left: 0;"></div>
-                            <p style="font-size: 1.3rem; color: var(--text-dark);">
-                                <strong>Fondatore del Gruppo Romeo.</strong>
-                            </p>
-                        </div>
-                        <div class="photo-wrapper" style="height: 420px;">
-                            <img src="PHOTO-2026-03-19-12-25-03.jpg" class="offer-photo" alt="Alfredo Romeo">
-                        </div>
-                    </div>
-                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
-                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">L'Intervista d'Autore</h3>
-                        <ul class="service-list">
-                            <li>
-                                <i class="fa-solid fa-microphone-lines"></i>
-                                <div>
-                                    Un contenuto d'autore per raccontare la leadership e la visione dell'eccellenza Romeo a Napoli. Un legame autentico con il pubblico d’élite.
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-video"></i>
-                                <div>
-                                    <strong>Format:</strong> Intervista Video al Management o allo Chef.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="offer-card">
-                <div class="card-main-content">
-                    <div class="card-column border-right">
-                        <div>
-                            <span class="tag-prestige">tips. <i class="fa-solid fa-hat-chef"></i></span>
-                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">I Segreti dello Chef</h2>
-                            <div class="accent-line" style="margin-left: 0;"></div>
-                            <p style="font-size: 1.3rem; color: var(--text-dark);">
-                                <strong>Chef Alessandro Lucassino.</strong>
-                            </p>
-                        </div>
-                        <div class="photo-wrapper" style="height: 420px;">
-                            <img src="PHOTO-2026-03-19-12-25-03 2.jpg" class="offer-photo" alt="Chef Alessandro Lucassino">
-                        </div>
-                    </div>
-                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
-                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">Cucina Stellata</h3>
-                        <ul class="service-list">
-                            <li>
-                                <i class="fa-solid fa-video"></i>
-                                <div>
-                                    Pillole video in cui lo chef Alessandro Lucassino svela un dettaglio, un ingrediente o una tecnica della cucina stellata.
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-utensils"></i>
-                                <div>
-                                    <strong>Obiettivo:</strong> Trasmettere la maestria culinaria del Ristorante Alain Ducasse at Romeo Napoli.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="offer-card">
-                <div class="card-main-content">
-                    <div class="card-column border-right">
-                        <div>
-                            <span class="tag-prestige">calendar. <i class="fa-solid fa-calendar-days"></i></span>
-                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">Eventi & Seasonality</h2>
-                            <div class="accent-line" style="margin-left: 0;"></div>
-                            <p style="font-size: 1.3rem; color: var(--text-dark);">
-                                <strong>In tempo reale.</strong>
-                            </p>
-                        </div>
-                        <div class="photo-wrapper">
-                            <img src="PHOTO-2026-03-19-12-25-02.jpg" class="offer-photo" alt="Brunch Ducasse">
-                        </div>
-                    </div>
-                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
-                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">Promozione Mirata</h3>
-                        <ul class="service-list">
-                            <li>
-                                <i class="fa-solid fa-bullhorn"></i>
-                                <div>
-                                    Promozione mirata di eventi esclusivi, brunch d'autore e festività, comunicati in tempo reale su tutto il network per una copertura completa.
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-champagne-glasses"></i>
-                                <div>
-                                    Un percorso gastronomico che celebra i grandi eventi della stagione (Pasqua, brunch esclusivi, etc).
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="offer-card">
-                <div class="card-main-content">
-                    <div class="card-column border-right">
-                        <div>
-                            <span class="tag-prestige">stories. <i class="fa-solid fa-camera-retro"></i></span>
-                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">Visual Storytelling</h2>
-                            <div class="accent-line" style="margin-left: 0;"></div>
-                            <p style="font-size: 1.3rem; color: var(--text-dark);">
-                                <strong>Design & Atmosfera.</strong>
-                            </p>
-                        </div>
-                        <div class="photo-wrapper">
-                            <img src="PHOTO-2026-03-19-12-25-03 3.jpg" class="offer-photo" alt="Romeo Experience">
-                        </div>
-                    </div>
-                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
-                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">Design Living</h3>
-                        <ul class="service-list">
-                            <li>
-                                <i class="fa-solid fa-film"></i>
-                                <div>
-                                    Video ad alto impatto (forniti dal cliente) che fondono il design del Romeo con la bellezza architettonica delle Stazioni dell'Arte.
-                                </div>
-                            </li>
-                            <li>
-                                <i class="fa-solid fa-bed"></i>
-                                <div>
-                                    <strong>Design Living:</strong> Una presentazione dinamica delle camere e delle suite più iconiche e lussuose.
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
             <div class="showcase-wrapper">
-                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Video Istituzionali</h2>
+                <h2 style="font-size: 3rem; margin-bottom: 20px;">Servizi di Comunicazione</h2>
+                <div class="accent-line"></div>
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; width: 100%; text-align: left;">
+                    <div style="background: white; padding: 35px; border-radius: 35px; border-left: 10px solid var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.4rem;"><i class="fa-solid fa-microphone-lines"></i> COPERTURA EVENTI & ESG</h4>
+                        <p style="color: #555; font-size: 1.1rem; line-height: 1.6;">Produzione di servizi redazionali dedicati per inaugurazioni, eventi charity ed iniziative di sostenibilità organizzate da Sole365. Il vostro impegno diventa notizia nel nostro format TG.</p>
+                    </div>
+                    <div style="background: white; padding: 35px; border-radius: 35px; border-left: 10px solid var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.4rem;"><i class="fa-solid fa-clapperboard"></i> STORYTELLING AUTOREVOLE</h4>
+                        <p style="color: #555; font-size: 1.1rem; line-height: 1.6;">Utilizziamo la forza dell'informazione per raccontare le vostre <strong>7 regole</strong>, trasformando la pubblicità in un contenuto utile per la comunità.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--bg-soft);">
+            <img src="Risorsa 1.png" alt="Logo" class="vnn-logo-top">
+            <div class="showcase-wrapper">
+                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Referenze Excellence</h2>
                 <div class="showcase-grid">
-                    <div class="showcase-card"><i class="fa-solid fa-crown"></i><h4>Reggia di Caserta</h4><a href="https://www.videometro.tv/video/reggia-di-caserta" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><i class="fa-solid fa-landmark"></i><h4>Paestum & Velia</h4><a href="https://www.videometro.tv/video/racconti-darte-paestum-velia" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><i class="fa-solid fa-university"></i><h4>Reggia of Portici</h4><a href="https://www.videometro.tv/video/reggia-of-portici-agraria" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><i class="fa-solid fa-heart-pulse"></i><h4>IRCSS Pascale</h4><a href="https://www.videometro.tv/video/irccs-fondazione-pascale-lultima-mossa" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><i class="fa-solid fa-hospital-user"></i><h4>ASL 1</h4><a href="https://www.videometro.tv/video/806027636" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><i class="fa-solid fa-building-columns"></i><h4>Federico II</h4><a href="https://www.videometro.tv/video/federico-ii-800-anni" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><h4>Reggia di Caserta</h4><a href="https://www.videometro.tv/video/reggia-di-caserta" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><h4>Paestum & Velia</h4><a href="https://www.videometro.tv/video/racconti-darte-paestum-velia" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><h4>Reggia di Portici</h4><a href="https://www.videometro.tv/video/reggia-di-portici-agraria" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><h4>IRCSS Pascale</h4><a href="https://www.videometro.tv/video/irccs-fondazione-pascale-lultima-mossa" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><h4>ASL 1</h4><a href="https://www.videometro.tv/video/806027636" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><h4>Federico II</h4><a href="https://www.videometro.tv/video/federico-ii-800-anni" target="_blank" class="btn-play">GUARDA</a></div>
                 </div>
             </div>
         </section>
 
         <section>
+            <img src="Risorsa 1.png" alt="Logo" class="vnn-logo-top">
             <div class="showcase-wrapper">
-                <h2 style="font-size: 3.5rem; margin-bottom: 40px;">Format: TG Excellence</h2>
+                <h2 style="font-size: 3.5rem; margin-bottom: 40px;">Format: TG News</h2>
                 <div class="showcase-grid tg-grid">
-                    <div class="showcase-card"><h4>Amedeo Manzo</h4><a href="https://www.videometro.tv/video/tg-17032023-amedeo-manzo" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Matteo Lorito</h4><a href="https://www.videometro.tv/video/tg-05062024-matteo-lorito" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Pres. Amedeo Manzo</h4><a href="https://www.videometro.tv/video/tg-17032023-amedeo-manzo" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Ret. Matteo Lorito</h4><a href="https://www.videometro.tv/video/tg-05062024-matteo-lorito" target="_blank" class="btn-play">TG</a></div>
                     <div class="showcase-card"><h4>Ercolano</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-ercolano" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Miriam Candurro</h4><a href="https://videometro.tv/video/tg-21032025-miriam-candurro" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Alessandro Gassmann</h4><a href="https://videometro.tv/video/tg-07122023-alessandro-gassman" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Torre del Greco</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-torre-del-greco" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Corrado Cuccurullo</h4><a href="https://www.videometro.tv/video/tg-03042025-corrado-cuccurullo" target="_blank" class="btn-play">TG</a></div>
                     <div class="showcase-card"><h4>Maurizio Di Mauro</h4><a href="https://www.videometro.tv/video/tg-15012026-maurizio-di-mauro" target="_blank" class="btn-play">TG</a></div>
                     <div class="showcase-card"><h4>Carmine Foreste</h4><a href="https://www.videometro.tv/video/tg-07022026-carmine-foreste" target="_blank" class="btn-play">TG</a></div>
                     <div class="showcase-card"><h4>Posillipo</h4><a href="https://www.videometro.tv/video/posillipo-pallanuoto-conference-cup-giuseppe-monteriso" target="_blank" class="btn-play">TG</a></div>
@@ -601,9 +308,10 @@
             </div>
         </section>
 
-        <section>
+        <section style="background-color: var(--bg-soft);">
+            <img src="Risorsa 1.png" alt="Logo" class="vnn-logo-top">
             <div class="showcase-wrapper">
-                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Esempi Produzione Spot</h2>
+                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Produzione Spot</h2>
                 <div class="showcase-grid">
                     <div class="showcase-card"><h4>IUAD: Futuro</h4><a href="https://www.videometro.tv/video/iuad-il-creativo-del-futuro" target="_blank" class="btn-play">VEDI</a></div>
                     <div class="showcase-card"><h4>Istituto Pascale</h4><a href="https://www.videometro.tv/video/istituto-pascale-5-euro-contro-il-fumo" target="_blank" class="btn-play">VEDI</a></div>
@@ -616,38 +324,44 @@
         </section>
 
         <section>
-            <div class="hero-content" style="color: var(--primary); width: 100%; max-width: 1200px;">
-                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Il Valore di VideoMetrò</h2>
-                <div class="showcase-grid" style="grid-template-columns: repeat(2, 1fr);">
-                    <div class="showcase-card" style="padding: 3rem;">
-                        <h4 style="margin-bottom: 15px; color: var(--accent); font-size: 2rem; text-align: left;"><i class="fa-solid fa-users"></i> BRAND PRESTIGE</h4>
-                        <p style="font-size: 1.1rem; color: #64748b; text-align: left;">Coerenza con il posizionamento "Luxury Art Hotel" del Romeo. Intercettiamo il pubblico dove lo sguardo cerca l'arte.</p>
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">I Nostri Partner</h2>
+            <div class="client-grid">
+                <div class="client-item">Coca-Cola</div><div class="client-item">coop</div><div class="client-item">Comune di Napoli</div><div class="client-item">Intesa Sanpaolo</div><div class="client-item">Grimaldi Lines</div>
+                <div class="client-item">Sammontana</div><div class="client-item">Parmalat</div><div class="client-item">Audi</div><div class="client-item">DREAMWORKS</div><div class="client-item">FEDERICO II</div>
+                <div class="client-item">FIAT</div><div class="client-item">SKY</div><div class="client-item">Pfizer</div><div class="client-item">Regione Campania</div><div class="client-item">TIM</div>
+                <div class="client-item">Reggia di Caserta</div><div class="client-item">Warner Bros</div><div class="client-item">MSC</div><div class="client-item">Amazon</div><div class="client-item">Anas</div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--secondary);">
+            <div class="hero-content">
+                <h2 style="color: white; font-size: 3.5rem; margin-bottom: 40px;">Asset della Dominanza</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left;">
+                    <div style="background: white; padding: 40px; border-radius: 35px; border-top: 10px solid var(--primary);">
+                        <h4 style="text-align: left; color: var(--primary); margin-bottom: 15px;">I NODI PRESIDIATI</h4>
+                        <p style="color: #555; line-height: 1.6;">Linea 1 (Toledo, Municipio, Vanvitelli...), Funicolari, Cumana e Circumvesuviana.</p>
                     </div>
-                    <div class="showcase-card" style="padding: 3rem;">
-                        <h4 style="margin-bottom: 15px; color: var(--accent); font-size: 2rem; text-align: left;"><i class="fa-solid fa-bolt"></i> ZERO DISTRAZIONE</h4>
-                        <p style="font-size: 1.1rem; color: #64748b; text-align: left;">Attenzione frontale garantita. Senza skip, il vostro brand diventa parte integrante del panorama culturale metropolitano.</p>
+                    <div style="background: white; padding: 40px; border-radius: 35px; border-top: 10px solid var(--primary);">
+                        <h4 style="text-align: left; color: var(--primary); margin-bottom: 15px;">DOMINANZA ASSET</h4>
+                        <p style="color: #555; line-height: 1.6;">Dominanza 12 mesi. Full circuit digitale con aggiornamento creativo real-time.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section style="background-color: var(--primary); justify-content: flex-start; padding-top: 80px;">
-            <h2 style="color: white; font-size: 3.5rem; margin-bottom: 30px;">Muoviamo Napoli insieme</h2>
-            
-            <div class="final-grid">
-                <img src="Screenshot 2026-03-19 alle 12.06.49.jpg" class="final-photo">
-                <img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" class="final-photo">
-                <img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" class="final-photo">
-                <img src="Gemini_Generated_Image_74sojs74sojs74so (1).jpg" class="final-photo">
-            </div>
-
-            <div class="final-logo-pill"><img src="Risorsa 1.png" alt="Logo"></div>
-
-            <div style="text-align: center; color: white;">
-                <p style="font-size: 2.5rem; font-weight: 700;">Francesco Pirozzi</p>
-                <p style="color: var(--accent); font-size: 1.2rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;">STRATEGIA E SVILUPPO | VIDEOMETRÒ</p>
-                <div class="accent-line" style="margin: 15px auto; width: 80px;"></div>
-                <p style="font-size: 1.3rem;"><i class="fa-solid fa-phone" style="color: var(--accent);"></i> 320 7963978 &nbsp; | &nbsp; <i class="fa-solid fa-envelope" style="color: var(--accent);"></i> francesco.pirozzi@vnn.it</p>
+        <section style="background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%); color: white;">
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 4rem; border-radius: 60px; text-align: center; border: 2px solid rgba(255,255,255,0.2);">
+                <div style="background: white; padding: 20px 40px; border-radius: 100px; display: inline-block; margin-bottom: 30px;">
+                    <img src="Risorsa 1.png" alt="VNN" style="width: 180px;">
+                </div>
+                <h2 style="color: white; font-size: 3rem;">Muoviamo Napoli insieme</h2>
+                <p style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">Francesco Pirozzi</p>
+                <p style="font-size: 1.2rem; letter-spacing: 3px; opacity: 0.9;">STRATEGIA E SVILUPPO | VIDEOMETRÒ</p>
+                <div style="margin-top: 40px;">
+                    <p style="font-size: 1.3rem; margin-bottom: 10px;"><i class="fa-solid fa-phone"></i> 320 7963978</p>
+                    <p style="font-size: 1.3rem;"><i class="fa-solid fa-envelope"></i> francesco.pirozzi@vnn.it</p>
+                </div>
             </div>
         </section>
 
@@ -658,14 +372,10 @@
         const dots = document.querySelectorAll('.dot');
         container.addEventListener('scroll', () => {
             const index = Math.round(container.scrollTop / window.innerHeight);
-            dots.forEach((dot, i) => {
-                if(dot) dot.classList.toggle('active', i === index);
-            });
+            dots.forEach((dot, i) => { if(dot) dot.classList.toggle('active', i === index); });
         });
         dots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                container.scrollTo({ top: i * window.innerHeight, behavior: 'smooth' });
-            });
+            dot.addEventListener('click', () => { container.scrollTo({ top: i * window.innerHeight, behavior: 'smooth' }); });
         });
     </script>
 </body>
