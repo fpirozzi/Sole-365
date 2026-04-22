@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Proposta Strategica Romeo Napoli & VideoMetrò 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #003366;
+            --accent: #C5A059;
+            --bg: #F9F7F2;
+            --text: #1A1A1A;
+            --white: #FFFFFF;
+            font-size: 18px;
+        }
+
+        @media (min-width: 1920px) { :root { font-size: 22px; } }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            background-color: #000; 
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg);
+            overflow: hidden;
+            padding: 4rem 8%;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Merriweather', serif; color: var(--primary); margin: 0; text-align: center; }
+        .accent-line { width: 100px; height: 7px; background: var(--accent); margin: 1.5rem auto; border-radius: 10px; }
+
+        .vnn-logo-top {
+            position: absolute;
+            top: 50px; 
+            right: 60px;
+            width: 160px;
+            z-index: 100;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 0;
+        }
+        .video-container video {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .video-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,51,102,0.85), rgba(0,51,102,0.5));
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 50;
+            text-align: center;
+            color: white;
+        }
+        .hero-content h1 { color: white; font-size: 5.5rem; text-transform: uppercase; letter-spacing: 5px; line-height: 1.1; }
+        .hero-content p { font-size: 1.8rem; color: var(--accent); font-weight: 700; margin-top: 15px; }
+
+        .offer-card {
+            background: var(--white);
+            padding: 2.5rem 3rem;
+            border-radius: 40px;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.15);
+            width: 100%;
+            height: 88vh; 
+            max-width: 1500px;
+            z-index: 2;
+            border-top: 15px solid var(--accent);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-main-content {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            flex-grow: 1;
+        }
+
+        .card-column { display: flex; flex-direction: column; justify-content: space-between; height: 100%; }
+        .border-right { border-right: 2px solid #f1f5f9; padding-right: 30px; }
+
+        .new-price { font-size: 4.5rem; font-weight: 800; color: var(--primary); line-height: 1; margin: 0.3rem 0; text-align: left; }
+        
+        .photo-wrapper {
+            width: 100%;
+            height: 330px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 10px;
+        }
+        .offer-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .station-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 5px;
+        }
+        .station-item {
+            background: #f8fafc;
+            padding: 12px; 
+            border-radius: 12px;
+            border-left: 6px solid var(--accent);
+            text-align: left;
+        }
+        .station-item h4 { font-size: 1rem; margin-bottom: 3px; text-align: left; }
+
+        .service-list { list-style: none; display: flex; flex-direction: column; justify-content: space-around; height: 100%; }
+        .service-list li { font-size: 1.15rem; display: flex; align-items: flex-start; color: #334155; line-height: 1.3; }
+        .service-list i { color: var(--accent); margin-right: 15px; margin-top: 4px; font-size: 1.4rem; min-width: 40px; text-align: center; }
+
+        .footer-note {
+            font-size: 0.85rem;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 10px;
+            line-height: 1.4;
+            text-align: left;
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        .showcase-wrapper {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            width: 100%;
+        }
+        
+        .tg-grid { grid-template-columns: repeat(4, 1fr); max-width: 1450px; }
+
+        .showcase-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            border: 1px solid #f1f5f9;
+            transition: transform 0.3s ease;
+        }
+        .showcase-card:hover { transform: translateY(-10px); }
+        .showcase-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 15px; }
+        .showcase-card h4 { font-size: 1rem; height: 3rem; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; color: var(--primary); font-weight: 700; }
+        
+        .btn-play {
+            display: inline-block;
+            padding: 10px 25px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .nav-dots {
+            position: fixed;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .dot {
+            width: 12px; height: 12px;
+            background: rgba(0,0,0,0.15);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .dot.active { background: var(--accent); transform: scale(1.6); }
+
+        .tag-prestige {
+            background: var(--primary);
+            color: white;
+            font-size: 1.3rem; 
+            padding: 8px 25px;
+            border-radius: 30px;
+            font-weight: 800;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        /* FINAL GRID STYLES */
+        .final-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            width: 100%;
+            max-width: 1400px;
+            margin-bottom: 30px;
+            z-index: 10;
+        }
+        .final-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid rgba(255,255,255,0.2);
+        }
+
+        .final-logo-pill {
+            background: white;
+            padding: 20px 40px;
+            border-radius: 100px;
+            display: inline-block;
+            margin-bottom: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        .final-logo-pill img { width: 180px; height: auto; display: block; }
+
+        @media (max-width: 1024px) {
+            :root { font-size: 16px; }
+            section { height: auto; min-height: 100vh; padding: 60px 20px; }
+            .container { scroll-snap-type: none; overflow-y: auto; }
+            .offer-card { height: auto; padding: 2rem; }
+            .card-main-content, .final-grid { grid-template-columns: 1fr; }
+            .photo-wrapper { height: 220px !important; margin: 15px auto !important; width: 100% !important; }
+            .offer-photo { height: 100% !important; object-fit: cover !important; }
+            .final-photo { height: 200px !important; margin-bottom: 10px; }
+            .showcase-grid, .tg-grid { grid-template-columns: 1fr; }
+            .nav-dots { display: none; }
+            .vnn-logo-top { display: none; }
+            section:first-of-type .vnn-logo-top { display: block; position: relative; top: 0; right: 0; margin: 0 auto 20px auto; width: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-dots">
+        <div class="dot active"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div>
+    </div>
+
+    <div class="container">
+        
+        <section>
+            <div class="video-container">
+                <video autoplay muted loop playsinline>
+                    <source src="VIDEO-2026-02-16-09-46-52.mp4" type="video/mp4">
+                </video>
+                <div class="video-overlay"></div>
+            </div>
+            <img src="Risorsa 1.png" alt="Logo VNN" class="vnn-logo-top">
+            <div class="hero-content">
+                <p style="letter-spacing: 8px; opacity: 0.9; text-transform: uppercase;">PROPOSTA SPECIALE HOSPITALITY</p>
+                <h1>Romeo Napoli</h1>
+                <div class="accent-line" style="width: 200px; height: 6px;"></div>
+                <p style="font-size: 2.2rem; color: white;">Partnership Alain Ducasse & VideoMetrò 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="hero-content" style="color: var(--primary); max-width: 1100px;">
+                <h3 style="font-size: 150px; line-height: 1; margin-bottom: 0;">400.000</h3>
+                <p style="font-size: 48px; color: var(--accent); font-weight: 700; text-transform: uppercase; margin-bottom: 40px;">Sguardi ogni giorno</p>
+                <div class="accent-line" style="width: 150px;"></div>
+                <p style="font-size: 2.4rem; line-height: 1.8; color: #4b5563;">
+                    Il brand Romeo e la firma di <strong>Alain Ducasse</strong> diventano parte integrante del panorama culturale di Napoli. Un presidio d’élite che trasforma l’attesa in banchina in un’esperienza di pura ispirazione.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="showcase-wrapper">
+                <h2 class="slide-title-centered" style="font-size: 3.5rem; margin-bottom: 40px;">Il Circuito dell'Eccellenza</h2>
+                <div class="showcase-grid tg-grid" style="grid-template-columns: repeat(2, 1fr); gap: 25px; max-width: 1300px;">
+                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">STAZIONE MUNICIPIO</h4>
+                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">Luxury Entry Point</span>
+                        </div>
+                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Il brand Romeo appare come un’oasi di calma e lusso. È il vostro Red Carpet digitale per chi arriva dal Porto.</p>
+                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: DINAMISMO VS ECCELLENZA</div>
+                    </div>
+                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">FUNICOLARE CENTRALE</h4>
+                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">High-Spending Target</span>
+                        </div>
+                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Intercettiamo il target locale alto-spendente. Il link diretto tra i residenti d'élite e la cucina stellata di Alain Ducasse.</p>
+                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: LIFESTYLE & CONVIVIALITÀ</div>
+                    </div>
+                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">STAZIONE TOLEDO</h4>
+                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">Global Icon</span>
+                        </div>
+                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Nella stazione più bella del mondo, il brand Romeo associato alla bellezza architettonica premiata globalmente.</p>
+                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: BRAND DOMINANCE</div>
+                    </div>
+                    <div class="showcase-card" style="text-align: left; padding: 2.5rem; border-top: 8px solid var(--accent);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <h4 style="margin: 0; font-size: 1.4rem;">STAZIONE GARIBALDI</h4>
+                            <span class="tag-prestige" style="font-size: 0.7rem; padding: 5px 12px;">International Hub</span>
+                        </div>
+                        <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.5;">Hub dell'Alta Velocità. Il primo contatto con chi arriva a Napoli, comunicando l'anima moderna del Romeo.</p>
+                        <div style="margin-top: 15px; color: var(--accent); font-weight: 700; font-size: 0.8rem;"><i class="fa-solid fa-camera"></i> VISUAL: INNOVAZIONE URBANA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="offer-card">
+                <div class="card-main-content">
+                    <div class="card-column border-right">
+                        <div>
+                            <h2 style="font-size: 2.5rem; text-align: left;">Romeo Gallery</h2>
+                            <div class="new-price">€ 24.000</div>
+                            <p style="color: var(--accent); font-weight: 800; margin-bottom: 15px;">DURATA CAMPAGNA: 3 MESI</p>
+                            <div class="station-grid">
+                                <div class="station-item"><h4>Municipio</h4></div>
+                                <div class="station-item"><h4>Toledo</h4></div>
+                                <div class="station-item"><h4>Chiaia</h4></div>
+                                <div class="station-item"><h4>Garibaldi</h4></div>
+                            </div>
+                        </div>
+                        <div class="photo-wrapper">
+                            <img src="Screenshot 2026-03-19 alle 12.06.49.jpg" class="offer-photo" alt="Romeo Gallery">
+                        </div>
+                    </div>
+                    <div class="card-column" style="padding-left: 10px;">
+                        <h3 style="font-size: 2rem; text-align: left; margin-bottom: 20px;">Asset Inclusi:</h3>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-film"></i> <div><strong>9 Spot Digitali (Totali):</strong> 3 Tips (Chef), 3 Calendar (Eventi), 3 Brand Prestige.</div></li>
+                            <li><i class="fa-solid fa-clapperboard"></i> <div><strong>1 Focus Video:</strong> Intervista Video d'autore dedicata al Management o allo Chef.</div></li>
+                            <li><i class="fa-solid fa-clock"></i> <div><strong>Presidio H24:</strong> Frequenza garantita sui nodi strategici.</div></li>
+                            <li><i class="fa-solid fa-share-nodes"></i> <div><strong>Social Media Kit:</strong> Formati video ottimizzati per LinkedIn e Instagram.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="offer-card" style="border-top-color: var(--primary);">
+                
+                <div class="card-main-content">
+                    <div class="card-column border-right">
+                        <div>
+                            <h2 style="font-size: 2.5rem; text-align: left;">Excellence Full</h2>
+                            <div class="new-price">€ 60.000</div>
+                            <p style="color: var(--accent); font-weight: 800; margin-bottom: 3px;">DURATA CAMPAGNA: 6 MESI</p>
+                            <p style="color: var(--primary); font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 1px;">ESCLUSIVA MERCEOLOGICA</p>
+                            <div style="background: var(--primary); color: white; padding: 22px; border-radius: 20px; border-left: 8px solid var(--accent); margin-top: 5px;">
+                                <h4 style="color: var(--accent); text-align: left; font-size: 1.6rem;">24 Stazioni <small style="font-size: 0.6em; opacity: 0.8; font-weight: 300; margin-left: 5px;">Full Circuit</small></h4>
+                                <p style="font-size: 0.9rem;">Copertura integrale dell'intera rete VideoMetrò.</p>
+                            </div>
+                        </div>
+                        <div class="photo-wrapper" style="height: 320px;">
+                            <img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" class="offer-photo" alt="Metro Romeo">
+                        </div>
+                    </div>
+                    <div class="card-column" style="padding-left: 10px;">
+                        <h3 style="font-size: 2rem; text-align: left; margin-bottom: 15px;">Servizi Premium:</h3>
+                        <ul class="service-list">
+                            <li><i class="fa-solid fa-photo-film"></i> <div><strong>18 Spot Digitali:</strong> Aggiornamenti ciclici per Focus, Tips, Calendar e Stories.</div></li>
+                            <li><i class="fa-solid fa-microphone-lines"></i> <div><strong>Produzione TG Special:</strong> Format redazionale dedicato ai grandi eventi Romeo.</div></li>
+                            <li><i class="fa-solid fa-clapperboard"></i> <div><strong>3 Produzioni Focus Video:</strong> Interviste d'autore sulla visione del Gruppo.</div></li>
+                            <li><i class="fa-solid fa-video"></i> <div><strong>Video Istituzionale:</strong> Produzione d'élite dedicata a SPA e Design.</div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-note">
+                    Proposta di rinnovo semestrale: investimento di € 40.000,00 con l'inclusione di una produzione video 'High-End'. Il contenuto seguirà la linea narrativa e l'impatto emozionale del progetto 'Reggia di Caserta', garantendo un posizionamento d’eccellenza all'interno del circuito.
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="offer-card">
+                <div class="card-main-content">
+                    <div class="card-column border-right">
+                        <div>
+                            <span class="tag-prestige">focus. <i class="fa-solid fa-signature"></i></span>
+                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">Alfredo Romeo</h2>
+                            <div class="accent-line" style="margin-left: 0;"></div>
+                            <p style="font-size: 1.3rem; color: var(--text-dark);">
+                                <strong>Fondatore del Gruppo Romeo.</strong>
+                            </p>
+                        </div>
+                        <div class="photo-wrapper" style="height: 420px;">
+                            <img src="PHOTO-2026-03-19-12-25-03.jpg" class="offer-photo" alt="Alfredo Romeo">
+                        </div>
+                    </div>
+                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
+                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">L'Intervista d'Autore</h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fa-solid fa-microphone-lines"></i>
+                                <div>
+                                    Un contenuto d'autore per raccontare la leadership e la visione dell'eccellenza Romeo a Napoli. Un legame autentico con il pubblico d’élite.
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-video"></i>
+                                <div>
+                                    <strong>Format:</strong> Intervista Video al Management o allo Chef.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="offer-card">
+                <div class="card-main-content">
+                    <div class="card-column border-right">
+                        <div>
+                            <span class="tag-prestige">tips. <i class="fa-solid fa-hat-chef"></i></span>
+                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">I Segreti dello Chef</h2>
+                            <div class="accent-line" style="margin-left: 0;"></div>
+                            <p style="font-size: 1.3rem; color: var(--text-dark);">
+                                <strong>Chef Alessandro Lucassino.</strong>
+                            </p>
+                        </div>
+                        <div class="photo-wrapper" style="height: 420px;">
+                            <img src="PHOTO-2026-03-19-12-25-03 2.jpg" class="offer-photo" alt="Chef Alessandro Lucassino">
+                        </div>
+                    </div>
+                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
+                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">Cucina Stellata</h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fa-solid fa-video"></i>
+                                <div>
+                                    Pillole video in cui lo chef Alessandro Lucassino svela un dettaglio, un ingrediente o una tecnica della cucina stellata.
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-utensils"></i>
+                                <div>
+                                    <strong>Obiettivo:</strong> Trasmettere la maestria culinaria del Ristorante Alain Ducasse at Romeo Napoli.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="offer-card">
+                <div class="card-main-content">
+                    <div class="card-column border-right">
+                        <div>
+                            <span class="tag-prestige">calendar. <i class="fa-solid fa-calendar-days"></i></span>
+                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">Eventi & Seasonality</h2>
+                            <div class="accent-line" style="margin-left: 0;"></div>
+                            <p style="font-size: 1.3rem; color: var(--text-dark);">
+                                <strong>In tempo reale.</strong>
+                            </p>
+                        </div>
+                        <div class="photo-wrapper">
+                            <img src="PHOTO-2026-03-19-12-25-02.jpg" class="offer-photo" alt="Brunch Ducasse">
+                        </div>
+                    </div>
+                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
+                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">Promozione Mirata</h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fa-solid fa-bullhorn"></i>
+                                <div>
+                                    Promozione mirata di eventi esclusivi, brunch d'autore e festività, comunicati in tempo reale su tutto il network per una copertura completa.
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-champagne-glasses"></i>
+                                <div>
+                                    Un percorso gastronomico che celebra i grandi eventi della stagione (Pasqua, brunch esclusivi, etc).
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="offer-card">
+                <div class="card-main-content">
+                    <div class="card-column border-right">
+                        <div>
+                            <span class="tag-prestige">stories. <i class="fa-solid fa-camera-retro"></i></span>
+                            <h2 style="font-size: 2.8rem; text-align: left; margin: 20px 0;">Visual Storytelling</h2>
+                            <div class="accent-line" style="margin-left: 0;"></div>
+                            <p style="font-size: 1.3rem; color: var(--text-dark);">
+                                <strong>Design & Atmosfera.</strong>
+                            </p>
+                        </div>
+                        <div class="photo-wrapper">
+                            <img src="PHOTO-2026-03-19-12-25-03 3.jpg" class="offer-photo" alt="Romeo Experience">
+                        </div>
+                    </div>
+                    <div class="card-column" style="padding-left: 10px; justify-content: center;">
+                        <h3 style="text-align: left; font-size: 2rem; margin-bottom: 25px;">Design Living</h3>
+                        <ul class="service-list">
+                            <li>
+                                <i class="fa-solid fa-film"></i>
+                                <div>
+                                    Video ad alto impatto (forniti dal cliente) che fondono il design del Romeo con la bellezza architettonica delle Stazioni dell'Arte.
+                                </div>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-bed"></i>
+                                <div>
+                                    <strong>Design Living:</strong> Una presentazione dinamica delle camere e delle suite più iconiche e lussuose.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="showcase-wrapper">
+                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Video Istituzionali</h2>
+                <div class="showcase-grid">
+                    <div class="showcase-card"><i class="fa-solid fa-crown"></i><h4>Reggia di Caserta</h4><a href="https://www.videometro.tv/video/reggia-di-caserta" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><i class="fa-solid fa-landmark"></i><h4>Paestum & Velia</h4><a href="https://www.videometro.tv/video/racconti-darte-paestum-velia" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><i class="fa-solid fa-university"></i><h4>Reggia of Portici</h4><a href="https://www.videometro.tv/video/reggia-of-portici-agraria" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><i class="fa-solid fa-heart-pulse"></i><h4>IRCSS Pascale</h4><a href="https://www.videometro.tv/video/irccs-fondazione-pascale-lultima-mossa" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><i class="fa-solid fa-hospital-user"></i><h4>ASL 1</h4><a href="https://www.videometro.tv/video/806027636" target="_blank" class="btn-play">GUARDA</a></div>
+                    <div class="showcase-card"><i class="fa-solid fa-building-columns"></i><h4>Federico II</h4><a href="https://www.videometro.tv/video/federico-ii-800-anni" target="_blank" class="btn-play">GUARDA</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="showcase-wrapper">
+                <h2 style="font-size: 3.5rem; margin-bottom: 40px;">Format: TG Excellence</h2>
+                <div class="showcase-grid tg-grid">
+                    <div class="showcase-card"><h4>Amedeo Manzo</h4><a href="https://www.videometro.tv/video/tg-17032023-amedeo-manzo" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Matteo Lorito</h4><a href="https://www.videometro.tv/video/tg-05062024-matteo-lorito" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Ercolano</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-ercolano" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Miriam Candurro</h4><a href="https://videometro.tv/video/tg-21032025-miriam-candurro" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Alessandro Gassmann</h4><a href="https://videometro.tv/video/tg-07122023-alessandro-gassman" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Maurizio Di Mauro</h4><a href="https://www.videometro.tv/video/tg-15012026-maurizio-di-mauro" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Carmine Foreste</h4><a href="https://www.videometro.tv/video/tg-07022026-carmine-foreste" target="_blank" class="btn-play">TG</a></div>
+                    <div class="showcase-card"><h4>Posillipo</h4><a href="https://www.videometro.tv/video/posillipo-pallanuoto-conference-cup-giuseppe-monteriso" target="_blank" class="btn-play">TG</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="showcase-wrapper">
+                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Esempi Produzione Spot</h2>
+                <div class="showcase-grid">
+                    <div class="showcase-card"><h4>IUAD: Futuro</h4><a href="https://www.videometro.tv/video/iuad-il-creativo-del-futuro" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="showcase-card"><h4>Istituto Pascale</h4><a href="https://www.videometro.tv/video/istituto-pascale-5-euro-contro-il-fumo" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="showcase-card"><h4>Museo Madre</h4><a href="https://www.videometro.tv/video/single/museo-madre-gli-anni-capitolo-2" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="showcase-card"><h4>Artecard Scabec</h4><a href="https://www.videometro.tv/video/single/scabec-campania-artecard" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="showcase-card"><h4>Unico Campania</h4><a href="https://www.videometro.tv/video/single/unico-campania-tap-go2" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="showcase-card"><h4>Teatro di Napoli</h4><a href="https://www.videometro.tv/video/teatro-di-napoli-nel-cuore-e-nella-testa" target="_blank" class="btn-play">VEDI</a></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="hero-content" style="color: var(--primary); width: 100%; max-width: 1200px;">
+                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Il Valore di VideoMetrò</h2>
+                <div class="showcase-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="showcase-card" style="padding: 3rem;">
+                        <h4 style="margin-bottom: 15px; color: var(--accent); font-size: 2rem; text-align: left;"><i class="fa-solid fa-users"></i> BRAND PRESTIGE</h4>
+                        <p style="font-size: 1.1rem; color: #64748b; text-align: left;">Coerenza con il posizionamento "Luxury Art Hotel" del Romeo. Intercettiamo il pubblico dove lo sguardo cerca l'arte.</p>
+                    </div>
+                    <div class="showcase-card" style="padding: 3rem;">
+                        <h4 style="margin-bottom: 15px; color: var(--accent); font-size: 2rem; text-align: left;"><i class="fa-solid fa-bolt"></i> ZERO DISTRAZIONE</h4>
+                        <p style="font-size: 1.1rem; color: #64748b; text-align: left;">Attenzione frontale garantita. Senza skip, il vostro brand diventa parte integrante del panorama culturale metropolitano.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--primary); justify-content: flex-start; padding-top: 80px;">
+            <h2 style="color: white; font-size: 3.5rem; margin-bottom: 30px;">Muoviamo Napoli insieme</h2>
+            
+            <div class="final-grid">
+                <img src="Screenshot 2026-03-19 alle 12.06.49.jpg" class="final-photo">
+                <img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" class="final-photo">
+                <img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" class="final-photo">
+                <img src="Gemini_Generated_Image_74sojs74sojs74so (1).jpg" class="final-photo">
+            </div>
+
+            <div class="final-logo-pill"><img src="Risorsa 1.png" alt="Logo"></div>
+
+            <div style="text-align: center; color: white;">
+                <p style="font-size: 2.5rem; font-weight: 700;">Francesco Pirozzi</p>
+                <p style="color: var(--accent); font-size: 1.2rem; font-weight: 700; letter-spacing: 4px; text-transform: uppercase;">STRATEGIA E SVILUPPO | VIDEOMETRÒ</p>
+                <div class="accent-line" style="margin: 15px auto; width: 80px;"></div>
+                <p style="font-size: 1.3rem;"><i class="fa-solid fa-phone" style="color: var(--accent);"></i> 320 7963978 &nbsp; | &nbsp; <i class="fa-solid fa-envelope" style="color: var(--accent);"></i> francesco.pirozzi@vnn.it</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const dots = document.querySelectorAll('.dot');
+        container.addEventListener('scroll', () => {
+            const index = Math.round(container.scrollTop / window.innerHeight);
+            dots.forEach((dot, i) => {
+                if(dot) dot.classList.toggle('active', i === index);
+            });
+        });
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                container.scrollTo({ top: i * window.innerHeight, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
