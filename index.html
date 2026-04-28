@@ -10,17 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary: #F39200; /* Arancione Sole365 */
+            --primary: #F39200;
             --primary-dark: #D47F00;
-            --secondary: #4E8B42; /* Verde Freschezza */
-            --bg: #FFFFFF;
+            --secondary: #4E8B42;
             --bg-soft: #FFF9F2;
             --text: #1A1A1A;
             --white: #FFFFFF;
-            font-size: 18px;
         }
-
-        @media (min-width: 1920px) { :root { font-size: 22px; } }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
@@ -29,17 +25,17 @@
             color: var(--text);
             font-family: 'Montserrat', sans-serif;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             height: 100vh;
             overflow-y: scroll;
             scroll-snap-type: y mandatory;
-            scroll-behavior: smooth;
         }
 
         section {
-            height: 100vh;
+            min-height: 100vh;
             width: 100vw;
             scroll-snap-align: start;
             position: relative;
@@ -47,95 +43,101 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: var(--bg);
-            overflow: hidden;
-            padding: 4rem 8%;
+            padding: 4rem 5%;
         }
 
-        h1, h2 { font-family: 'Merriweather', serif; color: var(--primary); margin: 0; line-height: 1.2; text-align: center; }
-        .accent-line { width: 120px; height: 8px; background: var(--secondary); margin: 1.5rem auto; border-radius: 50px; }
+        .content-limit { width: 100%; max-width: 1300px; margin: 0 auto; z-index: 10; }
+
+        h1, h2 { font-family: 'Merriweather', serif; color: var(--primary); margin: 0; line-height: 1.1; text-align: center; }
+        h1 { font-size: clamp(2.2rem, 7vw, 4.2rem); text-transform: uppercase; font-weight: 900; }
+        h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
+
+        .accent-line { width: 100px; height: 6px; background: var(--secondary); margin: 1.2rem auto; border-radius: 50px; }
 
         .vnn-logo-top {
             position: absolute;
-            top: 40px; 
-            right: 50px;
-            width: 130px;
+            top: 25px; right: 35px;
+            width: clamp(70px, 10vw, 130px);
             z-index: 100;
         }
 
-        .video-container {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: 0;
-        }
+        /* Hero */
+        .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .video-container video { width: 100%; height: 100%; object-fit: cover; }
         .video-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.25));
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.25));
             z-index: 1;
         }
-        .hero-content { position: relative; z-index: 10; text-align: center; color: white; max-width: 1000px; }
-        .hero-content h1 { color: white; font-size: 4.5rem; text-transform: uppercase; font-weight: 900; }
-        .hero-content p { font-size: 1.5rem; font-weight: 600; margin-top: 20px; letter-spacing: 2px; }
 
+        /* Card System */
         .brand-card {
             background: var(--white);
-            padding: 3.5rem;
-            border-radius: 50px;
-            box-shadow: 0 40px 80px rgba(243,146,0,0.15);
-            width: 100%;
-            height: 85vh; 
-            max-width: 1400px;
-            z-index: 2;
-            border-bottom: 15px solid var(--primary);
+            padding: clamp(1.5rem, 4vw, 3rem);
+            border-radius: 40px;
+            box-shadow: 0 30px 60px rgba(243,146,0,0.12);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 2.5rem;
             align-items: center;
+            border-bottom: 12px solid var(--primary);
         }
 
-        .card-image-wrap { position: relative; width: 100%; height: 100%; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; }
+        .card-img { width: 100%; height: 380px; object-fit: cover; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-        .stat-circle {
+        .stat-box {
             background: var(--bg-soft);
-            padding: 30px;
-            border-radius: 30px;
+            padding: 1.5rem;
+            border-radius: 25px;
             border-left: 10px solid var(--secondary);
-            margin-bottom: 25px;
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
-        .stat-circle h3 { font-size: 4rem; color: var(--primary); font-weight: 800; text-align: left; line-height: 1; }
-        .stat-circle p { font-size: 1.1rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; text-align: left; margin-top: 10px; }
+        .stat-box h3 { font-size: clamp(2.2rem, 5vw, 3.5rem); color: var(--primary); font-weight: 800; line-height: 1; }
 
-        .feature-list { list-style: none; margin-top: 20px; }
-        .feature-list li { font-size: 1.25rem; display: flex; align-items: flex-start; margin-bottom: 25px; color: #333; text-align: left; line-height: 1.4; }
-        .feature-list i { color: var(--primary); margin-right: 20px; margin-top: 5px; font-size: 1.6rem; }
+        /* 7 REGOLE - RIGA UNICA */
+        .rules-row {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 2rem;
+            justify-content: space-between;
+        }
+        .rule-card {
+            background: white;
+            flex: 1;
+            padding: 15px 10px;
+            border-radius: 15px;
+            border-top: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .rule-card h4 { font-size: 0.8rem; color: var(--primary); font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        .rule-card p { font-size: 0.7rem; line-height: 1.2; color: #555; }
 
-        .rule-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; width: 100%; max-width: 1300px; }
-        .rule-item { background: white; padding: 20px; border-radius: 25px; border-top: 5px solid var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: left; }
-        .rule-item h4 { color: var(--primary); font-size: 1rem; margin-bottom: 8px; }
-        .rule-item p { font-size: 0.8rem; line-height: 1.4; color: #555; }
+        /* Media Grids */
+        .media-grid { display: grid; gap: 1rem; width: 100%; }
+        .grid-6 { grid-template-columns: repeat(3, 1fr); }
+        .grid-8 { grid-template-columns: repeat(4, 1fr); }
+        .media-card { background: white; padding: 1rem; border-radius: 20px; text-align: center; border: 1px solid #f1f5f9; box-shadow: 0 5px 15px rgba(0,0,0,0.04); }
+        .media-card h4 { font-size: 0.8rem; height: 2.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; color: var(--primary); font-weight: 700; line-height: 1.2; }
+        .btn-play { display: inline-block; padding: 8px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-size: 0.7rem; font-weight: 700; }
 
-        .showcase-wrapper { width: 100%; max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-        .showcase-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
-        .tg-grid { grid-template-columns: repeat(4, 1fr); max-width: 1400px; }
-        .showcase-card { background: white; padding: 1.2rem; border-radius: 30px; text-align: center; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 1px solid #f1f5f9; }
-        .showcase-card h4 { font-size: 0.85rem; height: 2.5rem; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; color: var(--primary); font-weight: 700; line-height: 1.2; }
-        .btn-play { display: inline-block; padding: 10px 25px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-size: 0.75rem; font-weight: 700; }
+        /* Partner Rows */
+        .partner-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; margin-bottom: 15px; }
+        .partner-item { background: white; padding: 15px; border-radius: 15px; font-weight: 800; font-size: 0.75rem; text-align: center; border: 1px solid #eee; display: flex; align-items: center; justify-content: center; height: 75px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); color: var(--primary-dark); }
 
-        .client-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; max-width: 1300px; }
-        .client-item { background: white; padding: 10px; border-radius: 15px; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; height: 60px; font-size: 0.7rem; text-transform: uppercase; }
-
-        .nav-dots { position: fixed; right: 30px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 8px; }
-        .dot { width: 10px; height: 10px; background: rgba(0,0,0,0.15); border-radius: 50%; cursor: pointer; transition: 0.3s; }
+        /* Nav Dots */
+        .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 10px; }
+        .dot { width: 10px; height: 10px; background: rgba(0,0,0,0.2); border-radius: 50%; cursor: pointer; }
         .dot.active { background: var(--primary); transform: scale(1.5); }
 
-        @media (max-width: 1024px) {
-            section { height: auto; min-height: 100vh; padding: 4rem 5%; }
-            .container { scroll-snap-type: none; }
-            .brand-card { grid-template-columns: 1fr; height: auto; padding: 2rem; }
-            .rule-grid, .showcase-grid, .tg-grid, .client-grid { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            section { height: auto; scroll-snap-align: none; padding: 5rem 1rem; }
+            .container { scroll-snap-type: none; height: auto; }
+            .brand-card { grid-template-columns: 1fr; }
+            .rules-row { flex-direction: column; }
+            .grid-6, .grid-8, .partner-row { grid-template-columns: 1fr 1fr; }
             .nav-dots { display: none; }
         }
     </style>
@@ -158,101 +160,99 @@
                 <div class="video-overlay"></div>
             </div>
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div class="hero-content">
-                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 5px;">SOLE365 & STAZIONI DELL'ARTE</p>
+            <div class="hero-content content-limit" style="color: white; text-align: center;">
+                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 5px; margin-bottom: 1rem;">SOLE365 & VIDEOMETRÒ</p>
                 <h1>Il Palcoscenico<br>dell'Eccellenza</h1>
-                <div class="accent-line" style="background: white; width: 180px;"></div>
-                <p>Progetto di Brand Dominance e Posizionamento Strategico 2026</p>
+                <div class="accent-line" style="background: white; width: 150px;"></div>
+                <p style="font-size: 1.4rem; opacity: 0.95;">Brand Dominance & Posizionamento Strategico 2026</p>
             </div>
         </section>
 
         <section style="background-color: var(--bg-soft);">
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div style="max-width: 1000px; text-align: center;">
-                <h2 style="font-size: 3.5rem; margin-bottom: 20px;">Chi Siamo</h2>
+            <div class="content-limit" style="text-align: center;">
+                <h2>Chi Siamo</h2>
                 <div class="accent-line"></div>
-                <p style="font-size: 1.8rem; font-weight: 600; color: var(--primary); margin-bottom: 30px;">
-                    Siamo la TV del Sistema di Metropolitana Regionale della Campania.
-                </p>
-                <p style="font-size: 1.4rem; line-height: 1.8; color: #444; font-weight: 400;">
-                    Trasformiamo l'attesa in un'esperienza di valore. Attraverso il nostro network, integriamo il messaggio di <strong>Sole365</strong> nel tessuto culturale e quotidiano di Napoli e della sua provincia.
-                </p>
-                <div style="margin-top: 40px; display: inline-block; background: var(--primary); color: white; padding: 20px 40px; border-radius: 50px; font-weight: 800; font-size: 1.5rem; box-shadow: 0 10px 30px rgba(243,146,0,0.3);">
-                    400.000 CONTATTI GARANTITI OGNI GIORNO
+                <p style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 2rem;">La Media Company del Trasporto Regionale della Campania.</p>
+                <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #333;">Trasformiamo le banchine d'attesa in luoghi di intrattenimento e informazione, intercettando i flussi vitali di Napoli e della sua provincia.</p>
+                <div style="margin-top: 3rem; display: inline-block; background: var(--primary); color: white; padding: 1.5rem 3rem; border-radius: 100px; font-weight: 800; font-size: 1.8rem; box-shadow: 0 10px 30px rgba(243,146,0,0.3);">
+                    400.000 VIAGGIATORI OGNI GIORNO
                 </div>
             </div>
         </section>
 
         <section>
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div style="max-width: 1000px; text-align: center; z-index: 10;">
-                <i class="fa-solid fa-sun" style="font-size: 4rem; color: var(--primary); margin-bottom: 30px;"></i>
-                <h2 style="font-size: 3rem; margin-bottom: 40px;">L'Affinità Elettiva</h2>
-                <p style="font-size: 2rem; line-height: 1.6; font-weight: 300; color: #444;">
+            <div class="content-limit" style="text-align: center;">
+                <i class="fa-solid fa-sun" style="font-size: 4rem; color: var(--primary); margin-bottom: 2rem;"></i>
+                <h2>L'Affinità Elettiva</h2>
+                <div class="accent-line"></div>
+                <p style="font-size: 2rem; line-height: 1.6; font-weight: 300; color: #333; font-family: 'Merriweather', serif; font-style: italic;">
                     "Sole365 ha ridefinito il branding nella GDO attraverso la <strong>gentilezza</strong>. Le Stazioni dell'Arte riflettono questi stessi canoni estetici."
                 </p>
-                <div class="accent-line"></div>
-                <p style="font-size: 1.4rem; color: var(--secondary); font-weight: 600;">Un posizionamento che eleva il brand oltre la semplice pubblicità.</p>
+                <p style="margin-top: 2rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 2px;">Integrazione perfetta nel tessuto culturale della city</p>
             </div>
         </section>
 
         <section style="background-color: var(--bg-soft);">
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div class="brand-card">
-                <div>
-                    <div class="stat-circle">
-                        <h3>400.000</h3>
-                        <p>OTS (Opportunity To See) Quotidiani</p>
-                    </div>
-                    <h2 style="text-align: left; font-size: 2.2rem; margin-bottom: 25px;">Metropolitan Domination</h2>
-                    <ul class="feature-list">
-                        <li><i class="fa-solid fa-location-dot"></i> <div><strong>Hub Primari:</strong> Metro Linea 1 + Funicolari (Chiaia, Centrale, Montesanto).</div></li>
-                        <li><i class="fa-solid fa-expand"></i> <div><strong>Espansione Suburbana:</strong> Presidio delle principali stazioni di Cumana e Circumvesuviana.</div></li>
-                        <li><i class="fa-solid fa-display"></i> <div><strong>Asset:</strong> 40 Impianti Digital Full-Motion ad altissima risoluzione.</div></li>
-                    </ul>
-                </div>
-                <div class="card-image-wrap"><img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" alt="Mockup Toledo"></div>
-            </div>
-        </section>
-
-        <section>
-            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div class="brand-card" style="border-bottom-color: var(--secondary);">
-                <div class="card-image-wrap"><img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" alt="Mockup Dominance"></div>
-                <div>
-                    <h2 style="text-align: left; font-size: 2.2rem; color: var(--secondary); margin-bottom: 20px;">Silenzio Competitivo</h2>
-                    <p style="font-size: 1.25rem; line-height: 1.6; margin-bottom: 30px; color: #444;">
-                        Sole365 domina il circuito con una <strong>Share of Voice esclusiva</strong> per il settore GDO. In un mercato saturo, noi cancelliamo il rumore di fondo dei competitor.
-                    </p>
-                    <div style="background: var(--primary); color: white; padding: 35px; border-radius: 35px; box-shadow: 0 15px 40px rgba(243,146,0,0.2);">
-                        <p style="font-weight: 800; font-size: 1.2rem; text-transform: uppercase; margin-bottom: 10px; color: white; text-align: left;">Il Potere del Momento</p>
-                        <p style="font-weight: 500; font-size: 1.5rem; line-height: 1.3; text-align: left;">Presidiamo i flussi decisionali nel momento esatto in cui nasce il bisogno della spesa.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section style="background-color: var(--bg-soft);">
-            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div class="showcase-wrapper">
-                <h2 style="font-size: 3rem; margin-bottom: 20px;">Le 7 Regole di Sole365</h2>
-                <div class="rule-grid" style="margin-bottom: 30px;">
-                    <div class="rule-item"><h4>1. Persone al centro</h4><p>Ci stanno a cuore le persone prima della loro spesa.</p></div>
-                    <div class="rule-item"><h4>2. Qualità e Sicurezza</h4><p>Risparmio, qualità e sicurezza garantiti.</p></div>
-                    <div class="rule-item"><h4>3. Prezzi Bassi 365</h4><p>Prezzi bassi costanti, senza promozioni a scadenza.</p></div>
-                    <div class="rule-item"><h4>4. Niente Raccolte Punti</h4><p>Semplifichiamo la scelta senza costi nascosti.</p></div>
-                    <div class="rule-item"><h4>5. Rispetto Ambiente</h4><p>Impegno eco-friendly: zero spreco di volantini cartacei.</p></div>
-                    <div class="rule-item"><h4>6. Libertà di Spesa</h4><p>Acquisti solo ciò che serve, senza eccessi indotti.</p></div>
-                    <div class="rule-item"><h4>7. Serenità Totale</h4><p>Lavoriamo per rendere la spesa serena e sicura.</p></div>
-                </div>
-                <div style="background: white; padding: 30px; border-radius: 40px; border: 3px solid var(--primary); width: 100%; text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+            <div class="content-limit">
+                <div class="brand-card">
                     <div>
-                        <h4 style="color: var(--primary); text-align: left; margin-bottom: 12px; font-size: 1.3rem;"><i class="fa-solid fa-handshake-angle"></i> Amplificatore di Valori</h4>
-                        <p style="font-size: 1rem; color: #333; line-height: 1.6;">Non trasmettiamo spot, ma contenuti che educano alla gentilezza. Portiamo la filosofia di Sole365 dove la città vive e si muove.</p>
+                        <div class="stat-box">
+                            <h3>400.000</h3>
+                            <p>OTS (Opportunity To See) Quotidiani</p>
+                        </div>
+                        <h2 style="text-align: left; margin-bottom: 1.5rem; font-size: 2rem;">Presidio Reale</h2>
+                        <ul style="list-style: none; text-align: left; font-size: 1.1rem;">
+                            <li style="margin-bottom: 1rem;"><i class="fa-solid fa-circle-check" style="color: var(--primary); margin-right: 10px;"></i> <strong>Core City:</strong> Metro Linea 1 + Funicolari.</li>
+                            <li style="margin-bottom: 1rem;"><i class="fa-solid fa-circle-check" style="color: var(--primary); margin-right: 10px;"></i> <strong>Hinterland Domination:</strong> Cumana e Circumvesuviana.</li>
+                            <li><i class="fa-solid fa-circle-check" style="color: var(--primary); margin-right: 10px;"></i> <strong>Asset:</strong> 40 Impianti Digital Full-Motion HD.</li>
+                        </ul>
                     </div>
-                    <div style="border-left: 2px solid #f1f5f9; padding-left: 30px;">
-                        <h4 style="color: var(--secondary); text-align: left; margin-bottom: 12px; font-size: 1.3rem;"><i class="fa-solid fa-leaf"></i> Sinergia Green & Digital</h4>
-                        <p style="font-size: 1rem; color: #333; line-height: 1.6;">Il nostro network è l'alleato perfetto per la vostra politica "No Volantini": <strong>100% digitale, 100% in tempo reale</strong>, a impatto zero sull'ambiente.</p>
+                    <img src="Gemini_Generated_Image_d4lga9d4lga9d4lg.jpg" class="card-img" alt="Network">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <div class="content-limit">
+                <div class="brand-card" style="border-bottom-color: var(--secondary);">
+                    <img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" class="card-img" alt="Share of Voice">
+                    <div>
+                        <h2 style="text-align: left; color: var(--secondary); margin-bottom: 1.2rem;">Silenzio Competitivo</h2>
+                        <p style="font-size: 1.25rem; margin-bottom: 2rem;">Sole365 domina il circuito con una <strong>Share of Voice esclusiva</strong>. Azzeriamo il rumore di fondo dei competitor.</p>
+                        <div style="background: var(--primary); color: white; padding: 2rem; border-radius: 35px; box-shadow: 0 15px 40px rgba(243,146,0,0.2);">
+                            <h4 style="margin-bottom: 10px; text-transform: uppercase; font-size: 1rem;">Vantaggio Strategico</h4>
+                            <p style="font-size: 1.3rem; font-weight: 600;">Presidiamo i flussi nel momento esatto in cui nasce il bisogno d'acquisto quotidiano.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="background-color: var(--bg-soft);">
+            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
+            <div class="content-limit" style="text-align: center;">
+                <h2 style="margin-bottom: 3rem;">Le 7 Regole di Sole365</h2>
+                <div class="rules-row">
+                    <div class="rule-card"><h4>1. Persone</h4><p>Cuore della spesa.</p></div>
+                    <div class="rule-card"><h4>2. Qualità</h4><p>Sicurezza garantita.</p></div>
+                    <div class="rule-card"><h4>3. Prezzi</h4><p>Bassi 365 giorni.</p></div>
+                    <div class="rule-card"><h4>4. No Punti</h4><p>Scelta trasparente.</p></div>
+                    <div class="rule-card"><h4>5. Ambiente</h4><p>Zero volantini.</p></div>
+                    <div class="rule-card"><h4>6. Libertà</h4><p>Solo ciò che serve.</p></div>
+                    <div class="rule-card"><h4>7. Serenità</h4><p>Spesa felice.</p></div>
+                </div>
+                <div style="background: white; padding: 2.5rem; border-radius: 35px; border: 3px solid var(--primary); text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+                    <div>
+                        <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fa-solid fa-leaf"></i> Sinergia Green</h4>
+                        <p style="font-size: 0.95rem; color: #333;">Il vostro modello "No Volantini" trova in noi l'alleato ideale: comunicazione 100% digitale a impatto zero, risparmiando tonnellate di carta.</p>
+                    </div>
+                    <div style="border-left: 2px solid #eee; padding-left: 30px;">
+                        <h4 style="color: var(--secondary); margin-bottom: 10px;"><i class="fa-solid fa-handshake-angle"></i> Amplificatore di Valori</h4>
+                        <p style="font-size: 0.95rem; color: #333;">Portiamo il messaggio di gentilezza Sole365 a 400.000 persone ogni giorno, integrando il brand nel cuore pulsante della città.</p>
                     </div>
                 </div>
             </div>
@@ -260,90 +260,87 @@
 
         <section>
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div class="showcase-wrapper">
-                <h2 style="font-size: 3rem; margin-bottom: 20px;">Servizi di Comunicazione</h2>
-                <div class="accent-line"></div>
-                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; width: 100%; text-align: left;">
-                    <div style="background: white; padding: 35px; border-radius: 35px; border-left: 10px solid var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.4rem;"><i class="fa-solid fa-microphone-lines"></i> COPERTURA EVENTI & ESG</h4>
-                        <p style="color: #555; font-size: 1.1rem; line-height: 1.6;">Produzione di servizi redazionali dedicati per inaugurazioni, eventi charity ed iniziative di sostenibilità organizzate da Sole365. Il vostro impegno diventa notizia nel nostro format TG.</p>
+            <div class="content-limit">
+                <h2 style="margin-bottom: 3rem;">Servizi di Comunicazione</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div style="background: var(--bg-soft); padding: 2.5rem; border-radius: 35px; border-left: 12px solid var(--secondary);">
+                        <h4 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-microphone-lines"></i> Copertura Eventi</h4>
+                        <p>Servizi redazionali per nuove aperture e attività ESG Sole365. Il vostro impegno diventa notizia nel format TG.</p>
                     </div>
-                    <div style="background: white; padding: 35px; border-radius: 35px; border-left: 10px solid var(--secondary); box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
-                        <h4 style="color: var(--secondary); margin-bottom: 15px; font-size: 1.4rem;"><i class="fa-solid fa-clapperboard"></i> STORYTELLING AUTOREVOLE</h4>
-                        <p style="color: #555; font-size: 1.1rem; line-height: 1.6;">Utilizziamo la forza dell'informazione per raccontare le vostre <strong>7 regole</strong>, trasformando la pubblicità in un contenuto utile per la comunità.</p>
+                    <div style="background: var(--bg-soft); padding: 2.5rem; border-radius: 35px; border-left: 12px solid var(--secondary);">
+                        <h4 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-clapperboard"></i> Storytelling</h4>
+                        <p>Produzione spot ad alto impatto visivo che enfatizzano la gentilezza e la qualità del brand Sole365.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section style="background-color: var(--bg-soft);">
-            <img src="Risorsa 1.png" alt="Logo" class="vnn-logo-top">
-            <div class="showcase-wrapper">
-                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Referenze Excellence</h2>
-                <div class="showcase-grid">
-                    <div class="showcase-card"><h4>Reggia di Caserta</h4><a href="https://www.videometro.tv/video/reggia-di-caserta" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><h4>Paestum & Velia</h4><a href="https://www.videometro.tv/video/racconti-darte-paestum-velia" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><h4>Reggia di Portici</h4><a href="https://www.videometro.tv/video/reggia-di-portici-agraria" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><h4>IRCSS Pascale</h4><a href="https://www.videometro.tv/video/irccs-fondazione-pascale-lultima-mossa" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><h4>ASL 1</h4><a href="https://www.videometro.tv/video/806027636" target="_blank" class="btn-play">GUARDA</a></div>
-                    <div class="showcase-card"><h4>Federico II</h4><a href="https://www.videometro.tv/video/federico-ii-800-anni" target="_blank" class="btn-play">GUARDA</a></div>
+            <div class="content-limit">
+                <h2 style="margin-bottom: 3rem;">Referenze Excellence</h2>
+                <div class="media-grid grid-6">
+                    <div class="media-card"><h4>Reggia di Caserta</h4><a href="https://www.videometro.tv/video/reggia-di-caserta" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Paestum & Velia</h4><a href="https://www.videometro.tv/video/racconti-darte-paestum-velia" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>IRCSS Pascale</h4><a href="https://www.videometro.tv/video/irccs-fondazione-pascale-lultima-mossa" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Reggia di Portici</h4><a href="https://www.videometro.tv/video/reggia-di-portici-agraria" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Federico II</h4><a href="https://www.videometro.tv/video/federico-ii-800-anni" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>ASL Napoli 1</h4><a href="https://www.videometro.tv/video/806027636" target="_blank" class="btn-play">VEDI</a></div>
                 </div>
             </div>
         </section>
 
         <section>
-            <img src="Risorsa 1.png" alt="Logo" class="vnn-logo-top">
-            <div class="showcase-wrapper">
-                <h2 style="font-size: 3.5rem; margin-bottom: 40px;">Format: TG News</h2>
-                <div class="showcase-grid tg-grid">
-                    <div class="showcase-card"><h4>Pres. Amedeo Manzo</h4><a href="https://www.videometro.tv/video/tg-17032023-amedeo-manzo" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Ret. Matteo Lorito</h4><a href="https://www.videometro.tv/video/tg-05062024-matteo-lorito" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Ercolano</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-ercolano" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Torre del Greco</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-torre-del-greco" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Corrado Cuccurullo</h4><a href="https://www.videometro.tv/video/tg-03042025-corrado-cuccurullo" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Maurizio Di Mauro</h4><a href="https://www.videometro.tv/video/tg-15012026-maurizio-di-mauro" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Carmine Foreste</h4><a href="https://www.videometro.tv/video/tg-07022026-carmine-foreste" target="_blank" class="btn-play">TG</a></div>
-                    <div class="showcase-card"><h4>Posillipo</h4><a href="https://www.videometro.tv/video/posillipo-pallanuoto-conference-cup-giuseppe-monteriso" target="_blank" class="btn-play">TG</a></div>
+            <div class="content-limit">
+                <h2 style="margin-bottom: 3rem;">Format: TG News</h2>
+                <div class="media-grid grid-8">
+                    <div class="media-card"><h4>Pres. Amedeo Manzo</h4><a href="https://www.videometro.tv/video/tg-17032023-amedeo-manzo" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Ret. Matteo Lorito</h4><a href="https://www.videometro.tv/video/tg-05062024-matteo-lorito" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Sindaco Cuccurullo</h4><a href="https://www.videometro.tv/video/tg-03042025-corrado-cuccurullo" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Maurizio Di Mauro</h4><a href="https://videometro.tv/video/tg-15012026-maurizio-di-mauro" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Carmine Foreste</h4><a href="https://videometro.tv/video/tg-07022026-carmine-foreste" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Posillipo Sport</h4><a href="https://www.videometro.tv/video/posillipo-pallanuoto-conference-cup-giuseppe-monteriso" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Vesuvio Ercolano</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-ercolano" target="_blank" class="btn-play">TG</a></div>
+                    <div class="media-card"><h4>Torre del Greco</h4><a href="https://www.videometro.tv/video/i-comuni-del-parco-nazionale-del-vesuvio-torre-del-greco" target="_blank" class="btn-play">TG</a></div>
                 </div>
             </div>
         </section>
 
         <section style="background-color: var(--bg-soft);">
-            <img src="Risorsa 1.png" alt="Logo" class="vnn-logo-top">
-            <div class="showcase-wrapper">
-                <h2 style="font-size: 3.5rem; margin-bottom: 50px;">Produzione Spot</h2>
-                <div class="showcase-grid">
-                    <div class="showcase-card"><h4>IUAD: Futuro</h4><a href="https://www.videometro.tv/video/iuad-il-creativo-del-futuro" target="_blank" class="btn-play">VEDI</a></div>
-                    <div class="showcase-card"><h4>Istituto Pascale</h4><a href="https://www.videometro.tv/video/istituto-pascale-5-euro-contro-il-fumo" target="_blank" class="btn-play">VEDI</a></div>
-                    <div class="showcase-card"><h4>Museo Madre</h4><a href="https://www.videometro.tv/video/single/museo-madre-gli-anni-capitolo-2" target="_blank" class="btn-play">VEDI</a></div>
-                    <div class="showcase-card"><h4>Artecard Scabec</h4><a href="https://www.videometro.tv/video/single/scabec-campania-artecard" target="_blank" class="btn-play">VEDI</a></div>
-                    <div class="showcase-card"><h4>Unico Campania</h4><a href="https://www.videometro.tv/video/single/unico-campania-tap-go2" target="_blank" class="btn-play">VEDI</a></div>
-                    <div class="showcase-card"><h4>Teatro di Napoli</h4><a href="https://www.videometro.tv/video/teatro-di-napoli-nel-cuore-e-nella-testa" target="_blank" class="btn-play">VEDI</a></div>
+            <div class="content-limit">
+                <h2 style="margin-bottom: 3rem;">Produzione Spot</h2>
+                <div class="media-grid grid-6">
+                    <div class="media-card"><h4>IUAD: Futuro</h4><a href="https://www.videometro.tv/video/iuad-il-creativo-del-futuro" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Istituto Pascale</h4><a href="https://www.videometro.tv/video/istituto-pascale-5-euro-contro-il-fumo" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Museo Madre</h4><a href="https://www.videometro.tv/video/single/museo-madre-gli-anni-capitolo-2" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Unico Campania</h4><a href="https://www.videometro.tv/video/single/unico-campania-tap-go2" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Artecard Scabec</h4><a href="https://www.videometro.tv/video/single/scabec-campania-artecard" target="_blank" class="btn-play">VEDI</a></div>
+                    <div class="media-card"><h4>Teatro di Napoli</h4><a href="https://www.videometro.tv/video/teatro-di-napoli-nel-cuore-e-nella-testa" target="_blank" class="btn-play">VEDI</a></div>
                 </div>
             </div>
         </section>
 
         <section>
-            <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">I Nostri Partner</h2>
-            <div class="client-grid">
-                <div class="client-item">Coca-Cola</div><div class="client-item">coop</div><div class="client-item">Comune di Napoli</div><div class="client-item">Intesa Sanpaolo</div><div class="client-item">Grimaldi Lines</div>
-                <div class="client-item">Sammontana</div><div class="client-item">Parmalat</div><div class="client-item">Audi</div><div class="client-item">DREAMWORKS</div><div class="client-item">FEDERICO II</div>
-                <div class="client-item">FIAT</div><div class="client-item">SKY</div><div class="client-item">Pfizer</div><div class="client-item">Regione Campania</div><div class="client-item">TIM</div>
-                <div class="client-item">Reggia di Caserta</div><div class="client-item">Warner Bros</div><div class="client-item">MSC</div><div class="client-item">Amazon</div><div class="client-item">Anas</div>
+            <div class="content-limit" style="text-align: center;">
+                <h2 style="margin-bottom: 4rem;">I Nostri Partner</h2>
+                <div class="partner-row">
+                    <div class="partner-item">Coca-Cola</div><div class="partner-item">Coop</div><div class="partner-item">Napoli</div><div class="partner-item">Intesa</div><div class="partner-item">Grimaldi</div>
+                </div>
+                <div class="partner-row">
+                    <div class="partner-item">Sammontana</div><div class="partner-item">Parmalat</div><div class="partner-item">Audi</div><div class="partner-item">Warner Bros</div><div class="partner-item">MSC</div>
+                </div>
             </div>
         </section>
 
         <section style="background-color: var(--secondary);">
-            <div class="hero-content">
-                <h2 style="color: white; font-size: 3.5rem; margin-bottom: 40px;">Asset della Dominanza</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left;">
-                    <div style="background: white; padding: 40px; border-radius: 35px; border-top: 10px solid var(--primary);">
-                        <h4 style="text-align: left; color: var(--primary); margin-bottom: 15px;">I NODI PRESIDIATI</h4>
+            <div class="content-limit">
+                <h2 style="color: white; margin-bottom: 3rem;">Asset della Dominanza</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; text-align: left;">
+                    <div style="background: white; padding: 2.5rem; border-radius: 35px; border-top: 10px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">I NODI PRESIDIATI</h4>
                         <p style="color: #555; line-height: 1.6;">Linea 1 (Toledo, Municipio, Vanvitelli...), Funicolari, Cumana e Circumvesuviana.</p>
                     </div>
-                    <div style="background: white; padding: 40px; border-radius: 35px; border-top: 10px solid var(--primary);">
-                        <h4 style="text-align: left; color: var(--primary); margin-bottom: 15px;">DOMINANZA ASSET</h4>
+                    <div style="background: white; padding: 2.5rem; border-radius: 35px; border-top: 10px solid var(--primary);">
+                        <h4 style="color: var(--primary); margin-bottom: 1rem;">DOMINANZA ASSET</h4>
                         <p style="color: #555; line-height: 1.6;">Dominanza 12 mesi. Full circuit digitale con aggiornamento creativo real-time.</p>
                     </div>
                 </div>
@@ -351,16 +348,15 @@
         </section>
 
         <section style="background: linear-gradient(180deg, var(--primary) 0%, var(--primary-dark) 100%); color: white;">
-            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); padding: 4rem; border-radius: 60px; text-align: center; border: 2px solid rgba(255,255,255,0.2);">
-                <div style="background: white; padding: 20px 40px; border-radius: 100px; display: inline-block; margin-bottom: 30px;">
-                    <img src="Risorsa 1.png" alt="VNN" style="width: 180px;">
+            <div class="content-limit" style="text-align: center;">
+                <div style="background: white; padding: 20px 45px; border-radius: 100px; display: inline-block; margin-bottom: 3rem;">
+                    <img src="Risorsa 1.png" alt="VNN" style="width: clamp(140px, 15vw, 200px);">
                 </div>
-                <h2 style="color: white; font-size: 3rem;">Muoviamo Napoli insieme</h2>
-                <p style="font-size: 2.5rem; font-weight: 800; margin: 20px 0;">Francesco Pirozzi</p>
-                <p style="font-size: 1.2rem; letter-spacing: 3px; opacity: 0.9;">STRATEGIA E SVILUPPO | VIDEOMETRÒ</p>
-                <div style="margin-top: 40px;">
-                    <p style="font-size: 1.3rem; margin-bottom: 10px;"><i class="fa-solid fa-phone"></i> 320 7963978</p>
-                    <p style="font-size: 1.3rem;"><i class="fa-solid fa-envelope"></i> francesco.pirozzi@vnn.it</p>
+                <p style="font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 800; margin: 1rem 0;">Francesco Pirozzi</p>
+                <p style="font-size: 1rem; letter-spacing: 3px; opacity: 0.95;">STRATEGIA E SVILUPPO | VIDEOMETRÒ</p>
+                <div style="margin-top: 4rem; font-size: 1.3rem;">
+                    <p style="margin-bottom: 10px;"><i class="fa-solid fa-phone"></i> 320 7963978</p>
+                    <p><i class="fa-solid fa-envelope"></i> francesco.pirozzi@vnn.it</p>
                 </div>
             </div>
         </section>
