@@ -43,37 +43,35 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 4rem 5%;
+            padding: 3rem 5%;
         }
 
-        .content-limit { width: 100%; max-width: 1300px; margin: 0 auto; z-index: 10; }
+        .content-limit { width: 100%; max-width: 1350px; margin: 0 auto; z-index: 10; }
 
         h1, h2 { font-family: 'Merriweather', serif; color: var(--primary); margin: 0; line-height: 1.1; text-align: center; }
         h1 { font-size: clamp(2.2rem, 7vw, 4.2rem); text-transform: uppercase; font-weight: 900; }
-        h2 { font-size: clamp(1.8rem, 5vw, 3rem); }
+        h2 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
 
         .accent-line { width: 100px; height: 6px; background: var(--secondary); margin: 1.2rem auto; border-radius: 50px; }
 
         .vnn-logo-top {
             position: absolute;
             top: 25px; right: 35px;
-            width: clamp(70px, 10vw, 130px);
+            width: clamp(70px, 10vw, 120px);
             z-index: 100;
         }
 
-        /* Hero */
         .video-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
         .video-container video { width: 100%; height: 100%; object-fit: cover; }
         .video-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.25));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
             z-index: 1;
         }
 
-        /* Card System */
         .brand-card {
             background: var(--white);
-            padding: clamp(1.5rem, 4vw, 3rem);
+            padding: 2.5rem;
             border-radius: 40px;
             box-shadow: 0 30px 60px rgba(243,146,0,0.12);
             display: grid;
@@ -83,7 +81,7 @@
             border-bottom: 12px solid var(--primary);
         }
 
-        .card-img { width: 100%; height: 380px; object-fit: cover; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .card-img { width: 100%; height: 350px; object-fit: cover; border-radius: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
         .stat-box {
             background: var(--bg-soft);
@@ -97,47 +95,55 @@
 
         /* 7 REGOLE - RIGA UNICA */
         .rules-row {
-            display: flex;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
             gap: 10px;
             width: 100%;
             margin-bottom: 2rem;
-            justify-content: space-between;
         }
         .rule-card {
             background: white;
-            flex: 1;
             padding: 15px 10px;
             border-radius: 15px;
             border-top: 5px solid var(--primary);
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             text-align: center;
         }
-        .rule-card h4 { font-size: 0.8rem; color: var(--primary); font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
-        .rule-card p { font-size: 0.7rem; line-height: 1.2; color: #555; }
+        .rule-card h4 { font-size: 0.75rem; color: var(--primary); font-weight: 800; text-transform: uppercase; margin-bottom: 5px; min-height: 2rem; display: flex; align-items: center; justify-content: center; }
+        .rule-card p { font-size: 0.65rem; line-height: 1.2; color: #555; }
 
         /* Media Grids */
         .media-grid { display: grid; gap: 1rem; width: 100%; }
         .grid-6 { grid-template-columns: repeat(3, 1fr); }
         .grid-8 { grid-template-columns: repeat(4, 1fr); }
         .media-card { background: white; padding: 1rem; border-radius: 20px; text-align: center; border: 1px solid #f1f5f9; box-shadow: 0 5px 15px rgba(0,0,0,0.04); }
-        .media-card h4 { font-size: 0.8rem; height: 2.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; color: var(--primary); font-weight: 700; line-height: 1.2; }
+        .media-card h4 { font-size: 0.8rem; height: 2.2rem; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; color: var(--primary); font-weight: 700; }
         .btn-play { display: inline-block; padding: 8px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 50px; font-size: 0.7rem; font-weight: 700; }
 
-        /* Partner Rows */
-        .partner-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; width: 100%; margin-bottom: 15px; }
-        .partner-item { background: white; padding: 15px; border-radius: 15px; font-weight: 800; font-size: 0.75rem; text-align: center; border: 1px solid #eee; display: flex; align-items: center; justify-content: center; height: 75px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); color: var(--primary-dark); }
+        /* Partner Grid - 4 rows of 5 */
+        .partner-grid { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 12px; 
+            width: 100%; 
+        }
+        .partner-item { 
+            background: white; padding: 10px; border-radius: 12px; font-weight: 800; 
+            font-size: 0.7rem; text-align: center; border: 1px solid #eee; text-transform: uppercase;
+            display: flex; align-items: center; justify-content: center; height: 60px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03); color: var(--primary-dark);
+        }
 
         /* Nav Dots */
-        .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 10px; }
-        .dot { width: 10px; height: 10px; background: rgba(0,0,0,0.2); border-radius: 50%; cursor: pointer; }
+        .nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 100; display: flex; flex-direction: column; gap: 8px; }
+        .dot { width: 8px; height: 8px; background: rgba(0,0,0,0.2); border-radius: 50%; cursor: pointer; }
         .dot.active { background: var(--primary); transform: scale(1.5); }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1024px) {
             section { height: auto; scroll-snap-align: none; padding: 5rem 1rem; }
             .container { scroll-snap-type: none; height: auto; }
             .brand-card { grid-template-columns: 1fr; }
-            .rules-row { flex-direction: column; }
-            .grid-6, .grid-8, .partner-row { grid-template-columns: 1fr 1fr; }
+            .rules-row, .grid-6, .grid-8, .partner-grid { grid-template-columns: 1fr 1fr; }
             .nav-dots { display: none; }
         }
     </style>
@@ -160,11 +166,11 @@
                 <div class="video-overlay"></div>
             </div>
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
-            <div class="hero-content content-limit" style="color: white; text-align: center;">
-                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 5px; margin-bottom: 1rem;">SOLE365 & VIDEOMETRÒ</p>
+            <div class="hero-content content-limit">
+                <p style="text-transform: uppercase; font-weight: 700; letter-spacing: 4px; margin-bottom: 1rem; color: #FFF;">SOLE365 & VIDEOMETRÒ</p>
                 <h1>Il Palcoscenico<br>dell'Eccellenza</h1>
-                <div class="accent-line" style="background: white; width: 150px;"></div>
-                <p style="font-size: 1.4rem; opacity: 0.95;">Brand Dominance & Posizionamento Strategico 2026</p>
+                <div class="accent-line" style="background: white; width: 160px;"></div>
+                <p style="font-size: 1.3rem; opacity: 0.95; color: #FFF;">Brand Dominance & Vision 2026</p>
             </div>
         </section>
 
@@ -174,7 +180,7 @@
                 <h2>Chi Siamo</h2>
                 <div class="accent-line"></div>
                 <p style="font-size: 1.5rem; font-weight: 600; color: var(--primary); margin-bottom: 2rem;">La Media Company del Trasporto Regionale della Campania.</p>
-                <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #333;">Trasformiamo le banchine d'attesa in luoghi di intrattenimento e informazione, intercettando i flussi vitali di Napoli e della sua provincia.</p>
+                <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #333;">Trasformiamo le banchine d'attesa in luoghi di intrattenimento e informazione, catturando l'attenzione dei flussi vitali del territorio.</p>
                 <div style="margin-top: 3rem; display: inline-block; background: var(--primary); color: white; padding: 1.5rem 3rem; border-radius: 100px; font-weight: 800; font-size: 1.8rem; box-shadow: 0 10px 30px rgba(243,146,0,0.3);">
                     400.000 VIAGGIATORI OGNI GIORNO
                 </div>
@@ -187,10 +193,10 @@
                 <i class="fa-solid fa-sun" style="font-size: 4rem; color: var(--primary); margin-bottom: 2rem;"></i>
                 <h2>L'Affinità Elettiva</h2>
                 <div class="accent-line"></div>
-                <p style="font-size: 2rem; line-height: 1.6; font-weight: 300; color: #333; font-family: 'Merriweather', serif; font-style: italic;">
-                    "Sole365 ha ridefinito il branding nella GDO attraverso la <strong>gentilezza</strong>. Le Stazioni dell'Arte riflettono questi stessi canoni estetici."
+                <p style="font-size: 1.8rem; line-height: 1.6; font-weight: 300; color: #333; font-family: 'Merriweather', serif; font-style: italic;">
+                    "Sole365 ha ridefinito la GDO attraverso la <strong>gentilezza</strong>. Le Stazioni dell'Arte riflettono questi stessi canoni estetici."
                 </p>
-                <p style="margin-top: 2rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 2px;">Integrazione perfetta nel tessuto culturale della city</p>
+                <p style="margin-top: 2rem; font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 2px;">Integrazione perfetta nel tessuto culturale</p>
             </div>
         </section>
 
@@ -219,13 +225,13 @@
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
             <div class="content-limit">
                 <div class="brand-card" style="border-bottom-color: var(--secondary);">
-                    <img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" class="card-img" alt="Share of Voice">
+                    <img src="Gemini_Generated_Image_2xgluj2xgluj2xgl.jpg" class="card-img" alt="Strategy">
                     <div>
                         <h2 style="text-align: left; color: var(--secondary); margin-bottom: 1.2rem;">Silenzio Competitivo</h2>
-                        <p style="font-size: 1.25rem; margin-bottom: 2rem;">Sole365 domina il circuito con una <strong>Share of Voice esclusiva</strong>. Azzeriamo il rumore di fondo dei competitor.</p>
+                        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Sole365 domina il circuito con una <strong>Share of Voice esclusiva</strong>. Azzeriamo il rumore di fondo dei competitor.</p>
                         <div style="background: var(--primary); color: white; padding: 2rem; border-radius: 35px; box-shadow: 0 15px 40px rgba(243,146,0,0.2);">
-                            <h4 style="margin-bottom: 10px; text-transform: uppercase; font-size: 1rem;">Vantaggio Strategico</h4>
-                            <p style="font-size: 1.3rem; font-weight: 600;">Presidiamo i flussi nel momento esatto in cui nasce il bisogno d'acquisto quotidiano.</p>
+                            <h4 style="margin-bottom: 10px; text-transform: uppercase; font-size: 0.9rem;">Vantaggio Strategico</h4>
+                            <p style="font-size: 1.3rem; font-weight: 600;">Presidiamo i flussi nel momento esatto in cui nasce il bisogno d'acquisto.</p>
                         </div>
                     </div>
                 </div>
@@ -235,24 +241,24 @@
         <section style="background-color: var(--bg-soft);">
             <img src="Risorsa 1.png" alt="VNN" class="vnn-logo-top">
             <div class="content-limit" style="text-align: center;">
-                <h2 style="margin-bottom: 3rem;">Le 7 Regole di Sole365</h2>
+                <h2 style="margin-bottom: 2.5rem;">Le 7 Regole di Sole365</h2>
                 <div class="rules-row">
                     <div class="rule-card"><h4>1. Persone</h4><p>Cuore della spesa.</p></div>
-                    <div class="rule-card"><h4>2. Qualità</h4><p>Sicurezza garantita.</p></div>
-                    <div class="rule-card"><h4>3. Prezzi</h4><p>Bassi 365 giorni.</p></div>
-                    <div class="rule-card"><h4>4. No Punti</h4><p>Scelta trasparente.</p></div>
-                    <div class="rule-card"><h4>5. Ambiente</h4><p>Zero volantini.</p></div>
-                    <div class="rule-card"><h4>6. Libertà</h4><p>Solo ciò che serve.</p></div>
-                    <div class="rule-card"><h4>7. Serenità</h4><p>Spesa felice.</p></div>
+                    <div class="rule-card"><h4>2. Qualità</h4><p>Sicurezza in ogni scelta.</p></div>
+                    <div class="rule-card"><h4>3. Prezzi</h4><p>Bassi 365 giorni l'anno.</p></div>
+                    <div class="rule-card"><h4>4. No Punti</h4><p>Niente raccolte, solo valore.</p></div>
+                    <div class="rule-card"><h4>5. Ambiente</h4><p>Zero volantini cartacei.</p></div>
+                    <div class="rule-card"><h4>6. Libertà</h4><p>Solo ciò che ti serve.</p></div>
+                    <div class="rule-card"><h4>7. Serenità</h4><p>Spesa sicura e felice.</p></div>
                 </div>
                 <div style="background: white; padding: 2.5rem; border-radius: 35px; border: 3px solid var(--primary); text-align: left; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
                     <div>
                         <h4 style="color: var(--primary); margin-bottom: 10px;"><i class="fa-solid fa-leaf"></i> Sinergia Green</h4>
-                        <p style="font-size: 0.95rem; color: #333;">Il vostro modello "No Volantini" trova in noi l'alleato ideale: comunicazione 100% digitale a impatto zero, risparmiando tonnellate di carta.</p>
+                        <p style="font-size: 0.95rem; color: #333;">Il vostro modello "No Volantini" trova in noi l'alleato perfetto: comunicazione 100% digitale a impatto zero.</p>
                     </div>
                     <div style="border-left: 2px solid #eee; padding-left: 30px;">
                         <h4 style="color: var(--secondary); margin-bottom: 10px;"><i class="fa-solid fa-handshake-angle"></i> Amplificatore di Valori</h4>
-                        <p style="font-size: 0.95rem; color: #333;">Portiamo il messaggio di gentilezza Sole365 a 400.000 persone ogni giorno, integrando il brand nel cuore pulsante della città.</p>
+                        <p style="font-size: 0.95rem; color: #333;">Portiamo il messaggio di gentilezza Sole365 a 400.000 persone ogni giorno.</p>
                     </div>
                 </div>
             </div>
@@ -265,11 +271,11 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
                     <div style="background: var(--bg-soft); padding: 2.5rem; border-radius: 35px; border-left: 12px solid var(--secondary);">
                         <h4 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-microphone-lines"></i> Copertura Eventi</h4>
-                        <p>Servizi redazionali per nuove aperture e attività ESG Sole365. Il vostro impegno diventa notizia nel format TG.</p>
+                        <p>Servizi redazionali dedicati per inaugurazioni e attività ESG organizzate da Sole365 nel format TG.</p>
                     </div>
                     <div style="background: var(--bg-soft); padding: 2.5rem; border-radius: 35px; border-left: 12px solid var(--secondary);">
                         <h4 style="color: var(--secondary); font-size: 1.5rem; margin-bottom: 1rem;"><i class="fa-solid fa-clapperboard"></i> Storytelling</h4>
-                        <p>Produzione spot ad alto impatto visivo che enfatizzano la gentilezza e la qualità del brand Sole365.</p>
+                        <p>Produzione spot ad alto impatto visivo che enfatizzano la gentilezza e la qualità del brand.</p>
                     </div>
                 </div>
             </div>
@@ -277,7 +283,7 @@
 
         <section style="background-color: var(--bg-soft);">
             <div class="content-limit">
-                <h2 style="margin-bottom: 3rem;">Referenze Excellence</h2>
+                <h2 style="margin-bottom: 2.5rem;">Referenze Excellence</h2>
                 <div class="media-grid grid-6">
                     <div class="media-card"><h4>Reggia di Caserta</h4><a href="https://www.videometro.tv/video/reggia-di-caserta" target="_blank" class="btn-play">VEDI</a></div>
                     <div class="media-card"><h4>Paestum & Velia</h4><a href="https://www.videometro.tv/video/racconti-darte-paestum-velia" target="_blank" class="btn-play">VEDI</a></div>
@@ -291,7 +297,7 @@
 
         <section>
             <div class="content-limit">
-                <h2 style="margin-bottom: 3rem;">Format: TG News</h2>
+                <h2 style="margin-bottom: 2.5rem;">Format: TG News</h2>
                 <div class="media-grid grid-8">
                     <div class="media-card"><h4>Pres. Amedeo Manzo</h4><a href="https://www.videometro.tv/video/tg-17032023-amedeo-manzo" target="_blank" class="btn-play">TG</a></div>
                     <div class="media-card"><h4>Ret. Matteo Lorito</h4><a href="https://www.videometro.tv/video/tg-05062024-matteo-lorito" target="_blank" class="btn-play">TG</a></div>
@@ -307,7 +313,7 @@
 
         <section style="background-color: var(--bg-soft);">
             <div class="content-limit">
-                <h2 style="margin-bottom: 3rem;">Produzione Spot</h2>
+                <h2 style="margin-bottom: 2.5rem;">Produzione Spot</h2>
                 <div class="media-grid grid-6">
                     <div class="media-card"><h4>IUAD: Futuro</h4><a href="https://www.videometro.tv/video/iuad-il-creativo-del-futuro" target="_blank" class="btn-play">VEDI</a></div>
                     <div class="media-card"><h4>Istituto Pascale</h4><a href="https://www.videometro.tv/video/istituto-pascale-5-euro-contro-il-fumo" target="_blank" class="btn-play">VEDI</a></div>
@@ -321,12 +327,12 @@
 
         <section>
             <div class="content-limit" style="text-align: center;">
-                <h2 style="margin-bottom: 4rem;">I Nostri Partner</h2>
-                <div class="partner-row">
-                    <div class="partner-item">Coca-Cola</div><div class="partner-item">Coop</div><div class="partner-item">Napoli</div><div class="partner-item">Intesa</div><div class="partner-item">Grimaldi</div>
-                </div>
-                <div class="partner-row">
+                <h2 style="margin-bottom: 3rem;">I Nostri Partner</h2>
+                <div class="partner-grid">
+                    <div class="partner-item">Coca-Cola</div><div class="partner-item">Coop</div><div class="partner-item">Comune Napoli</div><div class="partner-item">Intesa Sanpaolo</div><div class="partner-item">Grimaldi</div>
                     <div class="partner-item">Sammontana</div><div class="partner-item">Parmalat</div><div class="partner-item">Audi</div><div class="partner-item">Warner Bros</div><div class="partner-item">MSC</div>
+                    <div class="partner-item">Amazon</div><div class="partner-item">Sky</div><div class="partner-item">Fiat</div><div class="partner-item">Tim</div><div class="partner-item">Pfizer</div>
+                    <div class="partner-item">Regione Campania</div><div class="partner-item">Anas</div><div class="partner-item">Dreamworks</div><div class="partner-item">Federico II</div><div class="partner-item">Reggia Caserta</div>
                 </div>
             </div>
         </section>
@@ -337,11 +343,11 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; text-align: left;">
                     <div style="background: white; padding: 2.5rem; border-radius: 35px; border-top: 10px solid var(--primary);">
                         <h4 style="color: var(--primary); margin-bottom: 1rem;">I NODI PRESIDIATI</h4>
-                        <p style="color: #555; line-height: 1.6;">Linea 1 (Toledo, Municipio, Vanvitelli...), Funicolari, Cumana e Circumvesuviana.</p>
+                        <p style="color: #555; line-height: 1.6;">Linea 1 (Toledo, Municipio...), Funicolari, Cumana e Circumvesuviana.</p>
                     </div>
                     <div style="background: white; padding: 2.5rem; border-radius: 35px; border-top: 10px solid var(--primary);">
                         <h4 style="color: var(--primary); margin-bottom: 1rem;">DOMINANZA ASSET</h4>
-                        <p style="color: #555; line-height: 1.6;">Dominanza 12 mesi. Full circuit digitale con aggiornamento creativo real-time.</p>
+                        <p style="color: #555; line-height: 1.6;">Dominanza 12 mesi. Full circuit digitale con aggiornamento real-time.</p>
                     </div>
                 </div>
             </div>
